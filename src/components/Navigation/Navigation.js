@@ -138,23 +138,19 @@ const Navigation = () => {
                      }
                      <IconButton
                         style={styles.button}
-                        className='icon-button'
                         onClick={() => toggleDrawer()}
-                        // size='medium'
                         sx={{
                            backgroundColor: darkMode ? '#8d85b9' : '#784cfb',
+                           color: darkMode ? '#5442af' : '#fff',
                            "&:hover": {
-                              backgroundColor: darkMode ? '#bcbac4' : "#ece6fe"
+                              backgroundColor: darkMode ? '#bcbac4' : "#ece6fe",
+                              color: darkMode ? '#5442af' : '#784cfb'
                            }
                         }}
                      >
                         <HiMenuAlt4
                            style={{
-                              fontSize: '1.4rem',
-                              color: darkMode ? '#5442af' : '#fff',
-                              '&:hover': {
-                                 color: darkMode ? '#5442af' : '#784cfb'
-                              }
+                              fontSize: '1.4rem'
                            }}
                         />
                      </IconButton>
