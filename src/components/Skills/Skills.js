@@ -20,81 +20,7 @@ import PrimaryButton from '../UI/PrimaryButton';
 import WorkIcon from '@mui/icons-material/Work';
 import { uiContext } from '../context/ui-context';
 import ObserverHook from '../../hooks/ObserverHook';
-import { SiFramer } from 'react-icons/si';
-
-const icons = [
-   {
-      icon: html,
-      text: 'HTML5'
-   },
-   {
-      icon: css,
-      text: 'CSS3'
-   },
-   {
-      icon: js,
-      text: 'JavaScript'
-   },
-   {
-      icon: scss,
-      text: 'SCSS'
-   },
-   {
-      icon: react,
-      text: 'ReactJS'
-   },
-   {
-      icon: redux,
-      text: 'Redux'
-   },
-   {
-      icon: mui,
-      text: 'Material UI'
-   },
-   {
-      icon: nodejs,
-      text: 'NodeJS'
-   },
-   {
-      icon: express,
-      text: 'ExpressJS'
-   },
-   {
-      icon: mongodb,
-      text: 'MongoDB'
-   },
-   {
-      icon: figma,
-      text: 'Figma'
-   },
-   {
-      icon: git,
-      text: 'Git'
-   },
-   {
-      icon: github,
-      text: 'Github'
-   },
-   {
-      icon: firebase,
-      text: 'Firebase'
-   },
-   {
-      icon: tailwind,
-      text: 'Tailwind CSS'
-   },
-   {
-      icon: <SiFramer style={{ fontSize: '2.65rem', color: '#c61aff' }} />,
-      text: 'Framer Motion'
-   }
-];
-
-const colors = ['#ff9900', '#3399ff', '#cccc00', '#ff6699', '#33bbff', '#9933ff', '#3399ff', '#00cc00', '#339933', '#669900', '#cc6699', '#ff6600', '#006699', '#e6b800', '#00ccff', '#c61aff'];
-
-const skillsText = [
-   "I work with all the modern technologies such as HTML5, CSS3, SCSS, JavaScript, Material UI, TailwindCSS, ReactJS, Redux, Redux Toolkit, Framer Motion, NodeJS, ExpressJS, MongoDB, Git, Firebase, Figma etc. I have a good sense of aesthetics and experience in responsive web design. I put special efforts into optimizing the code and make use of all the best use cases for all the technologies that I use.",
-   "I put a lot of thoughts into designing and consider all the possible hurdles before coming up with a solution which is not only visually stunning, but also functional as per requirement. Because providing the best user experience possible is the ultimate goal!"
-];
+import { SiNextdotjs } from 'react-icons/si';
 
 const Skills = () => {
    const { setNavlink, darkMode } = useContext(uiContext);
@@ -104,6 +30,88 @@ const Skills = () => {
    const lgWidth = useMediaQuery(theme.breakpoints.down('lg'));
    const mdWidth = useMediaQuery(theme.breakpoints.down('md'));
    const smWidth = useMediaQuery(theme.breakpoints.down('sm'));
+
+   const icons = [
+      {
+         icon: html,
+         text: 'HTML5'
+      },
+      {
+         icon: css,
+         text: 'CSS3'
+      },
+      {
+         icon: js,
+         text: 'JavaScript'
+      },
+      {
+         icon: scss,
+         text: 'SCSS'
+      },
+      {
+         icon: react,
+         text: 'ReactJS'
+      },
+      {
+         icon: <SiNextdotjs
+            style={{
+               fontSize: xlWidth && !lgWidth && !mdWidth && !smWidth ? '2.4rem' :
+                  xlWidth && lgWidth && !mdWidth && !smWidth ? '2.2rem' :
+                     xlWidth && lgWidth && mdWidth && !smWidth ? '1.7rem' :
+                        xlWidth && lgWidth && mdWidth && smWidth ? '1.6rem' : '2.65rem',
+               color: '#0099cc'
+            }}
+         />,
+         text: 'NextJS'
+      },
+      {
+         icon: redux,
+         text: 'Redux'
+      },
+      {
+         icon: mui,
+         text: 'Material UI'
+      },
+      {
+         icon: tailwind,
+         text: 'Tailwind'
+      },
+      {
+         icon: nodejs,
+         text: 'NodeJS'
+      },
+      {
+         icon: express,
+         text: 'ExpressJS'
+      },
+      {
+         icon: mongodb,
+         text: 'MongoDB'
+      },
+      {
+         icon: git,
+         text: 'Git'
+      },
+      {
+         icon: github,
+         text: 'Github'
+      },
+      {
+         icon: figma,
+         text: 'Figma'
+      },
+      {
+         icon: firebase,
+         text: 'Firebase'
+      }
+   ];
+
+   const colors = ['#ff9900', '#3399ff', '#cccc00', '#ff6699', '#33bbff', '#0099cc', '#9933ff', '#3399ff', '#00ccff', '#00cc00', '#339933', '#669900', '#ff6600', '#006699', '#cc6699', '#e6b800'];
+
+   const skillsText = [
+      "I work with all the modern technologies such as HTML5, CSS3, SCSS, JavaScript, Material UI, ReactJS, NextJS, Redux, Redux Toolkit, Framer Motion, TailwindCSS, NodeJS, ExpressJS, MongoDB, Git, Firebase, Figma etc. I have a good sense of aesthetics and experience in responsive web design. I put special efforts into optimizing the code and make use of all the best use cases for all the technologies that I use.",
+      "I put a lot of thoughts into designing and consider all the possible hurdles before coming up with a solution which is not only visually stunning, but also functional as per requirement. Because providing the best user experience possible is the ultimate goal!"
+   ];
 
    const height = xlWidth && !mdWidth ? '45px' : xlWidth && mdWidth ? '40px' : '50px';
 
@@ -124,7 +132,7 @@ const Skills = () => {
          sx={theme => ({
             display: 'grid',
             gridTemplateColumns: 'repeat(2, 1fr)',
-            columnGap: '15rem',
+            columnGap: '10rem',
             paddingTop: '8rem',
             paddingBottom: '8rem',
             [theme.breakpoints.down('xl')]: {
@@ -140,7 +148,7 @@ const Skills = () => {
             [theme.breakpoints.down('md')]: {
                paddingTop: '5rem',
                paddingBottom: '5rem',
-               columnGap: '3rem'
+               columnGap: '2rem'
             },
             [theme.breakpoints.down('sm')]: {
                paddingTop: '4.5rem',
@@ -296,8 +304,8 @@ const Skills = () => {
                               }
                            })}
                         >
-                           {item.text === 'Framer Motion' && item.icon}
-                           {item.text !== 'Framer Motion' &&
+                           {item.text === 'NextJS' && item.icon}
+                           {item.text !== 'NextJS' &&
                               <img
                                  style={{
                                     height: xlWidth && !lgWidth && !mdWidth ? '40px' :
