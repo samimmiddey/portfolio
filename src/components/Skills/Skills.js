@@ -8,15 +8,19 @@ import redux from '../../assets/skills/redux.png';
 import mui from '../../assets/skills/mui.png';
 import git from '../../assets/skills/git.png';
 import github from '../../assets/skills/github.png';
-import node from '../../assets/skills/node.png';
+import nodejs from '../../assets/skills/nodejs.png';
+import express from '../../assets/skills/express.png';
+import mongodb from '../../assets/skills/mongodb.png';
 import figma from '../../assets/skills/figma.png';
 import firebase from '../../assets/skills/firebase.png';
+import tailwind from '../../assets/skills/tailwind.png';
 import { Box, Grid, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { motion } from 'framer-motion';
 import PrimaryButton from '../UI/PrimaryButton';
 import WorkIcon from '@mui/icons-material/Work';
 import { uiContext } from '../context/ui-context';
 import ObserverHook from '../../hooks/ObserverHook';
+import { SiFramer } from 'react-icons/si';
 
 const icons = [
    {
@@ -48,8 +52,16 @@ const icons = [
       text: 'Material UI'
    },
    {
-      icon: node,
+      icon: nodejs,
       text: 'NodeJS'
+   },
+   {
+      icon: express,
+      text: 'ExpressJS'
+   },
+   {
+      icon: mongodb,
+      text: 'MongoDB'
    },
    {
       icon: figma,
@@ -66,14 +78,22 @@ const icons = [
    {
       icon: firebase,
       text: 'Firebase'
+   },
+   {
+      icon: tailwind,
+      text: 'Tailwind CSS'
+   },
+   {
+      icon: <SiFramer style={{ fontSize: '2.65rem', color: '#c61aff' }} />,
+      text: 'Framer Motion'
    }
 ];
 
-const colors = ['251, 232, 206', '222, 247, 254', '250, 244, 183', '254, 227, 236', '228, 251, 255', '246, 229, 245', '214, 229, 250', '230, 248, 249', '246, 223, 235', '255, 223, 211', '244, 243, 243', '255, 247, 188'];
+const colors = ['#ff9900', '#3399ff', '#cccc00', '#ff6699', '#33bbff', '#9933ff', '#3399ff', '#00cc00', '#339933', '#669900', '#cc6699', '#ff6600', '#006699', '#e6b800', '#00ccff', '#c61aff'];
 
 const skillsText = [
-   "I work with modern technologies such as HTML5, CSS3, SCSS, JavaScript, Material UI, React JS, Redux, Redux Toolkit, Framer Motion, Node JS, Git, Firebase, Figma etc.",
-   "I have a good sense of aesthetics and experience in responsive web design. I put special efforts into optimizing the code and make use of all the best use cases for all the technologies that I use. Because providing the best user experience possible is the ultimate goal."
+   "I work with all the modern technologies such as HTML5, CSS3, SCSS, JavaScript, Material UI, TailwindCSS, ReactJS, Redux, Redux Toolkit, Framer Motion, NodeJS, ExpressJS, MongoDB, Git, Firebase, Figma etc. I have a good sense of aesthetics and experience in responsive web design. I put special efforts into optimizing the code and make use of all the best use cases for all the technologies that I use.",
+   "I put a lot of thoughts into designing and consider all the possible hurdles before coming up with a solution which is not only visually stunning, but also functional as per requirement. Because providing the best user experience possible is the ultimate goal!"
 ];
 
 const Skills = () => {
@@ -132,52 +152,47 @@ const Skills = () => {
             }
          })}
       >
-         <Box
-            sx={theme => ({
-               height: '100%',
-               width: '100%',
-               display: 'flex',
-               flexDirection: 'column',
-               alignItems: 'flex-start',
-               justifyContent: 'flex-start',
-               rowGap: '2rem',
-               [theme.breakpoints.down('md')]: {
-                  rowGap: '1.5rem'
-               }
-            })}
+         <motion.div
+            initial={{ opacity: 0, y: -75 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 2, ease: 'easeInOut', delay: 0.8 }}
+            viewport={{ once: true }}
          >
-            <Box>
-               <Typography
-                  variant='h3'
-                  component={motion.h3}
-                  initial={{ opacity: 0, y: mdWidth ? -50 : -100 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 2, ease: 'easeInOut' }}
-                  viewport={{ once: true }}
-                  sx={theme => ({
-                     fontWeight: 500,
-                     fontFamily: 'Abril Fatface',
-                     color: 'text.primary',
-                     letterSpacing: 1,
-                     [theme.breakpoints.down('xl')]: {
-                        fontSize: '2.5rem'
-                     },
-                     [theme.breakpoints.down('lg')]: {
-                        fontSize: '2rem'
-                     },
-                     [theme.breakpoints.down('md')]: {
-                        fontSize: '1.75rem'
-                     }
-                  })}
-               >
-                  My Skills
-               </Typography>
-               <motion.div
-                  initial={{ opacity: 0, y: mdWidth ? -50 : -100 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 2, ease: 'easeInOut' }}
-                  viewport={{ once: true }}
-               >
+            <Box
+               sx={theme => ({
+                  height: '100%',
+                  width: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'flex-start',
+                  justifyContent: 'flex-start',
+                  rowGap: '2rem',
+                  [theme.breakpoints.down('md')]: {
+                     rowGap: '1.5rem'
+                  }
+               })}
+            >
+               <Box>
+                  <Typography
+                     variant='h3'
+                     sx={theme => ({
+                        fontWeight: 500,
+                        fontFamily: 'Abril Fatface',
+                        color: 'text.primary',
+                        letterSpacing: 1,
+                        [theme.breakpoints.down('xl')]: {
+                           fontSize: '2.5rem'
+                        },
+                        [theme.breakpoints.down('lg')]: {
+                           fontSize: '2rem'
+                        },
+                        [theme.breakpoints.down('md')]: {
+                           fontSize: '1.75rem'
+                        }
+                     })}
+                  >
+                     My Skills
+                  </Typography>
                   <Box
                      sx={{
                         height: '4px',
@@ -187,46 +202,34 @@ const Skills = () => {
                         borderRadius: '10px'
                      }}
                   />
-               </motion.div>
-            </Box>
-            <Box
-               sx={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  rowGap: '1rem',
-                  marginBottom: '10px'
-               }}
-            >
-               {skillsText.map((text, index) => (
-                  <Typography
-                     component={motion.h3}
-                     initial={{ opacity: 0, y: mdWidth ? -50 : -100 }}
-                     whileInView={{ opacity: 1, y: 0 }}
-                     transition={{ duration: 2, ease: 'easeInOut' }}
-                     viewport={{ once: true }}
-                     key={index}
-                     sx={theme => ({
-                        color: 'text.secondary',
-                        fontWeight: 500,
-                        fontSize: '16px',
-                        [theme.breakpoints.down('lg')]: {
-                           fontSize: '15px'
-                        },
-                        [theme.breakpoints.down('sm')]: {
-                           fontSize: '14px'
-                        }
-                     })}
-                  >
-                     {text}
-                  </Typography>
-               ))}
-            </Box>
-            <motion.div
-               initial={{ opacity: 0, y: mdWidth ? -50 : -100 }}
-               whileInView={{ opacity: 1, y: 0 }}
-               transition={{ duration: 2, ease: 'easeInOut' }}
-               viewport={{ once: true }}
-            >
+               </Box>
+               <Box
+                  sx={{
+                     display: 'flex',
+                     flexDirection: 'column',
+                     rowGap: '1rem',
+                     marginBottom: '10px'
+                  }}
+               >
+                  {skillsText.map((text, index) => (
+                     <Typography
+                        key={index}
+                        sx={theme => ({
+                           color: 'text.secondary',
+                           fontWeight: 500,
+                           fontSize: '16px',
+                           [theme.breakpoints.down('lg')]: {
+                              fontSize: '15px'
+                           },
+                           [theme.breakpoints.down('sm')]: {
+                              fontSize: '14px'
+                           }
+                        })}
+                     >
+                        {text}
+                     </Typography>
+                  ))}
+               </Box>
                <a href='#contact'>
                   <PrimaryButton
                      text='Hire Me'
@@ -234,97 +237,103 @@ const Skills = () => {
                      icon={<WorkIcon sx={{ marginLeft: '10px', fontSize: '1.3rem' }} />}
                   />
                </a>
-            </motion.div>
-         </Box>
-         <Grid
-            container
-            rowGap={smWidth ? 6 : 7}
-            sx={{
-               margin: '0 auto'
-            }}
+            </Box>
+         </motion.div>
+         <motion.div
+            initial={{ opacity: 0, y: -75 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 2, ease: 'easeInOut', delay: 0.3 }}
+            viewport={{ once: true }}
          >
-            {icons.map((item, index) => (
-               <Grid
-                  item
-                  key={index}
-                  xs={3}
-                  sx={{
-                     display: 'flex',
-                     alignItems: 'center',
-                     justifyContent: 'center'
-                  }}
-               >
-                  <motion.div
-                     initial={{ opacity: 0, y: mdWidth ? -50 : -100 }}
-                     whileInView={{ opacity: 1, y: 0 }}
-                     transition={{ duration: 2, ease: 'easeInOut' }}
-                     viewport={{ once: true }}
-                     style={{
+            <Grid
+               container
+               rowGap={smWidth ? 6 : 7}
+               sx={{
+                  margin: '0 auto'
+               }}
+            >
+               {icons.map((item, index) => (
+                  <Grid
+                     item
+                     key={index}
+                     xs={3}
+                     sx={{
                         display: 'flex',
-                        flexDirection: 'column',
                         alignItems: 'center',
                         justifyContent: 'center'
                      }}
                   >
                      <Box
-                        className={darkMode ? 'skills-circle-dark' : 'skills-circle'}
-                        sx={theme => ({
-                           height: '100px',
-                           width: '100px',
-                           borderRadius: '50%',
-                           backgroundColor: darkMode ? `rgba(${colors[index]}, 0.25)` : `rgba(${colors[index]}, 1)`,
+                        sx={{
                            display: 'flex',
+                           flexDirection: 'column',
                            alignItems: 'center',
-                           justifyContent: 'center',
-                           transition: '300ms ease',
-                           [theme.breakpoints.down('xl')]: {
-                              height: '80px',
-                              width: '80px'
-                           },
-                           [theme.breakpoints.down('lg')]: {
-                              height: '70px',
-                              width: '70px'
-                           },
-                           [theme.breakpoints.down('md')]: {
-                              height: '50px',
-                              width: '50px'
-                           }
-                        })}
+                           justifyContent: 'center'
+                        }}
                      >
-                        <img
-                           style={{
-                              height: xlWidth && !lgWidth && !mdWidth ? '40px' :
-                                 xlWidth && lgWidth && !mdWidth ? '35px' :
-                                    xlWidth && lgWidth && mdWidth ? '30px' : '50px',
-                              width: xlWidth && !lgWidth && !mdWidth ? '40px' :
-                                 xlWidth && lgWidth && !mdWidth ? '35px' :
-                                    xlWidth && lgWidth && mdWidth ? '30px' : '50px'
-                           }}
-                           src={item.icon}
-                           alt=""
-                        />
+                        <Box
+                           className={darkMode ? 'skills-circle-dark' : 'skills-circle'}
+                           sx={theme => ({
+                              height: '100px',
+                              width: '100px',
+                              borderRadius: '50%',
+                              backgroundColor: `${colors[index]}25`,
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              transition: '300ms ease',
+                              [theme.breakpoints.down('xl')]: {
+                                 height: '80px',
+                                 width: '80px'
+                              },
+                              [theme.breakpoints.down('lg')]: {
+                                 height: '70px',
+                                 width: '70px'
+                              },
+                              [theme.breakpoints.down('md')]: {
+                                 height: '50px',
+                                 width: '50px'
+                              }
+                           })}
+                        >
+                           {item.text === 'Framer Motion' && item.icon}
+                           {item.text !== 'Framer Motion' &&
+                              <img
+                                 style={{
+                                    height: xlWidth && !lgWidth && !mdWidth ? '40px' :
+                                       xlWidth && lgWidth && !mdWidth ? '35px' :
+                                          xlWidth && lgWidth && mdWidth ? '30px' : '50px',
+                                    width: xlWidth && !lgWidth && !mdWidth ? '40px' :
+                                       xlWidth && lgWidth && !mdWidth ? '35px' :
+                                          xlWidth && lgWidth && mdWidth ? '30px' : '50px'
+                                 }}
+                                 src={item.icon}
+                                 alt=""
+                              />
+                           }
+                        </Box>
+                        <Typography
+                           sx={theme => ({
+                              textAlign: 'center',
+                              mt: 1.5,
+                              color: 'text.secondary',
+                              fontWeight: 500,
+                              fontSize: '14px',
+                              [theme.breakpoints.down('lg')]: {
+                                 fontSize: '13.5px'
+                              },
+                              [theme.breakpoints.down('sm')]: {
+                                 fontSize: '13px'
+                              }
+                           })}
+                        >
+                           {item.text}
+                        </Typography>
                      </Box>
-                     <Typography
-                        sx={theme => ({
-                           textAlign: 'center',
-                           mt: 1.5,
-                           color: 'text.secondary',
-                           fontWeight: 500,
-                           fontSize: '14px',
-                           [theme.breakpoints.down('lg')]: {
-                              fontSize: '13.5px'
-                           },
-                           [theme.breakpoints.down('sm')]: {
-                              fontSize: '13px'
-                           }
-                        })}
-                     >
-                        {item.text}
-                     </Typography>
-                  </motion.div>
-               </Grid>
-            ))}
-         </Grid>
+                  </Grid>
+               ))}
+            </Grid>
+         </motion.div>
       </Box>
    );
 };

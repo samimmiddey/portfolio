@@ -10,46 +10,48 @@ import PortfolioCard from '../UI/PortfolioCard';
 import { motion } from 'framer-motion';
 import { uiContext } from '../context/ui-context';
 import ObserverHook from '../../hooks/ObserverHook';
+import portfolio from '../../assets/projects/portfolio.svg';
+import portfolioDark from '../../assets/projects/portfolioDark.svg';
 
-const buttonText = ['All', 'UI/UX', 'React JS', 'Web App'];
+const buttonText = ['All', 'UI/UX', 'Front End', 'Full Stack'];
 
 const projects = [
    {
       img: ecommerce,
       imgDark: ecommerceDark,
       title: 'Shopcult',
-      categories: ['REACT JS', 'ALL'],
-      description: 'A modern ecommerce website built using React JS, Redux Toolkit, Material UI, Commerce JS, Firebase & much more!',
+      categories: ['FULL STACK', 'ALL'],
+      description: 'A modern ecommerce website built using ReactJS, Redux Toolkit, Material UI, CommerceJS, Firebase, Stripe, SwiperJS & much more!',
       demo: 'https://shopcult.netlify.app',
       git: 'https://github.com/samimmiddey/shopcult'
    },
    {
       img: dashboard,
       imgDark: dashboardDark,
-      title: 'Admin Dashboard',
-      categories: ['REACT JS', 'ALL', 'UI/UX'],
-      description: 'A modern admin dashboard built using React JS, Redux Toolkit, Material UI, Firebase Authentication, Recharts & much more!',
-      demo: 'https://myreactadminpanel.netlify.app',
-      git: 'https://github.com/samimmiddey/react-admin'
+      title: 'Shopfling',
+      categories: ['FRONT END', 'ALL', 'UI/UX'],
+      description: 'A modern React dashboard built using ReactJS, ContextAPI, Material UI, Syncfusion Components with dark mode, theming & much more!',
+      demo: 'https://shopfling.netlify.app',
+      git: 'https://github.com/samimmiddey/shopfling'
    },
    {
       img: plantex,
       imgDark: plantexDark,
       title: 'Plantex',
-      categories: ['REACT JS', 'ALL', 'UI/UX'],
+      categories: ['FRONT END', 'ALL', 'UI/UX'],
       description: 'A modern single page static website with cool javascript animation, created with plain HTML, CSS, Javascript & Scrollreveal!',
-      demo: 'https://plantex-site.netlify.app',
+      demo: 'https://plantexdesign.netlify.app',
       git: 'https://github.com/samimmiddey/Plantex'
    },
    {
-      img: dashboard,
-      imgDark: dashboardDark,
-      title: 'Admin Dashboard',
-      categories: ['REACT JS', 'ALL', 'UI/UX'],
-      description: 'A modern admin dashboard built using React JS, Redux Toolkit, Material UI, Firebase Authentication, Recharts & much more!',
+      img: portfolio,
+      imgDark: portfolioDark,
+      title: 'Personal Portfolio',
+      categories: ['FRONT END', 'ALL', 'UI/UX'],
+      description: 'A modern personal portfolio built using ReactJS, ContextAPI, Material UI, Framer Motion, Leaflet, EmailJS, SwiperJS & much more!',
       demo: 'https://myreactadminpanel.netlify.app',
       git: 'https://github.com/samimmiddey/react-admin'
-   },
+   }
 ];
 
 const parent = {
@@ -59,6 +61,7 @@ const parent = {
    visible: {
       opacity: 1,
       transition: {
+         delay: 0.3,
          staggerChildren: 0.2
       }
    }
@@ -67,7 +70,7 @@ const parent = {
 const children = {
    hidden: {
       opacity: 0,
-      y: -100
+      y: -75
    },
    visible: {
       y: 0,
@@ -91,7 +94,6 @@ const Portfolio = () => {
    const filteredProjects = projects.filter((project) => project.categories.includes(category.value.toUpperCase()));
 
    const theme = useTheme();
-   const mdWidth = useMediaQuery(theme.breakpoints.down('md'));
    const smWidth = useMediaQuery(theme.breakpoints.down('sm'));
 
    const ref = useRef();
@@ -135,92 +137,84 @@ const Portfolio = () => {
             }
          })}
       >
-         <Box
-            sx={theme => ({
-               display: 'flex',
-               flexDirection: 'column',
-               alignItems: 'center',
-               justifyContent: 'center',
-               rowGap: '2rem',
-               [theme.breakpoints.down('md')]: {
-                  rowGap: '1.5rem'
-               },
-               [theme.breakpoints.down('sm')]: {
-                  rowGap: '1rem'
-               }
-            })}
+         <motion.div
+            initial={{ opacity: 0, y: -75 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 2, ease: 'easeInOut', delay: 0.3 }}
+            viewport={{ once: true }}
          >
             <Box
-               sx={{
+               sx={theme => ({
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
-               }}
+                  justifyContent: 'center',
+                  rowGap: '2rem',
+                  [theme.breakpoints.down('md')]: {
+                     rowGap: '1.5rem'
+                  },
+                  [theme.breakpoints.down('sm')]: {
+                     rowGap: '1rem'
+                  }
+               })}
             >
-               <Typography
-                  variant='h3'
-                  component={motion.h3}
-                  initial={{ opacity: 0, y: mdWidth ? -50 : -100 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 2, ease: 'easeInOut' }}
-                  viewport={{ once: true }}
-                  sx={theme => ({
-                     fontWeight: 500,
-                     color: 'text.primary',
-                     fontFamily: 'Abril Fatface',
-                     letterSpacing: 1,
-                     [theme.breakpoints.down('xl')]: {
-                        fontSize: '2.5rem'
-                     },
-                     [theme.breakpoints.down('lg')]: {
-                        fontSize: '2rem'
-                     },
-                     [theme.breakpoints.down('md')]: {
-                        fontSize: '1.75rem'
-                     }
-                  })}
-               >
-                  Portfolio
-               </Typography>
                <Box
-                  component={motion.div}
-                  initial={{ opacity: 0, y: mdWidth ? -50 : -100 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 2, ease: 'easeInOut' }}
-                  viewport={{ once: true }}
                   sx={{
-                     height: '4px',
-                     width: '65%',
-                     backgroundColor: darkMode ? '#5442af' : '#784cfb',
-                     marginTop: '12px',
-                     borderRadius: '10px'
+                     display: 'flex',
+                     flexDirection: 'column',
+                     alignItems: 'center',
                   }}
-               />
-            </Box>
-            <Box>
-               <Typography
-                  component={motion.h6}
-                  initial={{ opacity: 0, y: mdWidth ? -50 : -100 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 2, ease: 'easeInOut' }}
-                  viewport={{ once: true }}
-                  sx={theme => ({
-                     color: 'text.secondary',
-                     fontWeight: 500,
-                     textAlign: 'center',
-                     fontSize: '16px',
-                     [theme.breakpoints.down('lg')]: {
-                        fontSize: '15px'
-                     },
-                     [theme.breakpoints.down('sm')]: {
-                        fontSize: '14px'
-                     }
-                  })}
                >
-                  All of my latest work created with modern technologies
-               </Typography>
+                  <Typography
+                     variant='h3'
+                     sx={theme => ({
+                        fontWeight: 500,
+                        color: 'text.primary',
+                        fontFamily: 'Abril Fatface',
+                        letterSpacing: 1,
+                        [theme.breakpoints.down('xl')]: {
+                           fontSize: '2.5rem'
+                        },
+                        [theme.breakpoints.down('lg')]: {
+                           fontSize: '2rem'
+                        },
+                        [theme.breakpoints.down('md')]: {
+                           fontSize: '1.75rem'
+                        }
+                     })}
+                  >
+                     Portfolio
+                  </Typography>
+                  <Box
+                     sx={{
+                        height: '4px',
+                        width: '65%',
+                        backgroundColor: darkMode ? '#5442af' : '#784cfb',
+                        marginTop: '12px',
+                        borderRadius: '10px'
+                     }}
+                  />
+               </Box>
+               <Box>
+                  <Typography
+                     sx={theme => ({
+                        color: 'text.secondary',
+                        fontWeight: 500,
+                        textAlign: 'center',
+                        fontSize: '16px',
+                        [theme.breakpoints.down('lg')]: {
+                           fontSize: '15px'
+                        },
+                        [theme.breakpoints.down('sm')]: {
+                           fontSize: '14px'
+                        }
+                     })}
+                  >
+                     All of my latest work created with modern technologies
+                  </Typography>
+               </Box>
             </Box>
-         </Box>
+         </motion.div>
          <Box
             component={motion.div}
             variants={parent}

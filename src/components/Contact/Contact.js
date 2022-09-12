@@ -59,97 +59,89 @@ const Contact = () => {
             }
          })}
       >
-         <Box
-            sx={theme => ({
-               display: 'flex',
-               flexDirection: 'column',
-               alignItems: 'center',
-               justifyContent: 'center',
-               rowGap: '2rem',
-               [theme.breakpoints.down('md')]: {
-                  rowGap: '1.5rem'
-               },
-               [theme.breakpoints.down('sm')]: {
-                  rowGap: '1rem'
-               }
-            })}
+         <motion.div
+            initial={{ opacity: 0, y: -75 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 2, ease: 'easeInOut', delay: 0.8 }}
+            viewport={{ once: true }}
          >
             <Box
-               sx={{
+               sx={theme => ({
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
-               }}
+                  justifyContent: 'center',
+                  rowGap: '2rem',
+                  [theme.breakpoints.down('md')]: {
+                     rowGap: '1.5rem'
+                  },
+                  [theme.breakpoints.down('sm')]: {
+                     rowGap: '1rem'
+                  }
+               })}
             >
-               <Typography
-                  variant='h3'
-                  component={motion.h3}
-                  initial={{ opacity: 0, y: mdWidth ? -50 : -100 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 2, ease: 'easeInOut' }}
-                  viewport={{ once: true }}
-                  sx={theme => ({
-                     fontWeight: 500,
-                     fontFamily: 'Abril Fatface',
-                     color: 'text.primary',
-                     letterSpacing: 1,
-                     [theme.breakpoints.down('xl')]: {
-                        fontSize: '2.5rem'
-                     },
-                     [theme.breakpoints.down('lg')]: {
-                        fontSize: '2rem'
-                     },
-                     [theme.breakpoints.down('md')]: {
-                        fontSize: '1.75rem'
-                     }
-                  })}
-               >
-                  Contact Me
-               </Typography>
                <Box
-                  component={motion.div}
-                  initial={{ opacity: 0, y: mdWidth ? -50 : -100 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 2, ease: 'easeInOut' }}
-                  viewport={{ once: true }}
                   sx={{
-                     height: '4px',
-                     width: '65%',
-                     backgroundColor: darkMode ? '#5442af' : '#784cfb',
-                     marginTop: '12px',
-                     borderRadius: '10px'
+                     display: 'flex',
+                     flexDirection: 'column',
+                     alignItems: 'center',
                   }}
-               />
-            </Box>
-            <Box>
-               <Typography
-                  component={motion.h6}
-                  initial={{ opacity: 0, y: mdWidth ? -50 : -100 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 2, ease: 'easeInOut' }}
-                  viewport={{ once: true }}
-                  sx={theme => ({
-                     color: 'text.secondary',
-                     fontWeight: 500,
-                     textAlign: 'center',
-                     fontSize: '16px',
-                     [theme.breakpoints.down('lg')]: {
-                        fontSize: '15px'
-                     },
-                     [theme.breakpoints.down('sm')]: {
-                        fontSize: '14px'
-                     }
-                  })}
                >
-                  Get in touch with me at your convenience
-               </Typography>
+                  <Typography
+                     variant='h3'
+                     sx={theme => ({
+                        fontWeight: 500,
+                        fontFamily: 'Abril Fatface',
+                        color: 'text.primary',
+                        letterSpacing: 1,
+                        [theme.breakpoints.down('xl')]: {
+                           fontSize: '2.5rem'
+                        },
+                        [theme.breakpoints.down('lg')]: {
+                           fontSize: '2rem'
+                        },
+                        [theme.breakpoints.down('md')]: {
+                           fontSize: '1.75rem'
+                        }
+                     })}
+                  >
+                     Contact Me
+                  </Typography>
+                  <Box
+                     sx={{
+                        height: '4px',
+                        width: '65%',
+                        backgroundColor: darkMode ? '#5442af' : '#784cfb',
+                        marginTop: '12px',
+                        borderRadius: '10px'
+                     }}
+                  />
+               </Box>
+               <Box>
+                  <Typography
+                     sx={theme => ({
+                        color: 'text.secondary',
+                        fontWeight: 500,
+                        textAlign: 'center',
+                        fontSize: '16px',
+                        [theme.breakpoints.down('lg')]: {
+                           fontSize: '15px'
+                        },
+                        [theme.breakpoints.down('sm')]: {
+                           fontSize: '14px'
+                        }
+                     })}
+                  >
+                     Get in touch with me at your convenience
+                  </Typography>
+               </Box>
             </Box>
-         </Box>
+         </motion.div>
          <Box
             component={motion.div}
-            initial={{ opacity: 0, y: mdWidth ? -50 : -100 }}
+            initial={{ opacity: 0, y: -75 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 2, ease: 'easeInOut' }}
+            transition={{ duration: 2, ease: 'easeInOut', delay: 0.3 }}
             viewport={{ once: true }}
          >
             <ContactMethods />
@@ -168,9 +160,9 @@ const Contact = () => {
                })}
             >
                <motion.div
-                  initial={{ opacity: 0, x: mdWidth ? -50 : -100 }}
+                  initial={{ opacity: 0, x: -75 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 2, ease: 'easeInOut' }}
+                  transition={{ duration: 2, ease: 'easeInOut', delay: 0.3 }}
                   viewport={{ once: true }}
                >
                   <ContactForm />
@@ -178,9 +170,9 @@ const Contact = () => {
             </Grid>
             <Grid
                component={motion.div}
-               initial={{ opacity: 0, x: mdWidth ? 50 : 100 }}
+               initial={{ opacity: 0, x: 75 }}
                whileInView={{ opacity: 1, x: 0 }}
-               transition={{ duration: 2, ease: 'easeInOut' }}
+               transition={{ duration: 2, ease: 'easeInOut', delay: 0.3 }}
                viewport={{ once: true }}
                item xs={12} sm={12} md={6} lg={6} xl={6}
                sx={theme => ({

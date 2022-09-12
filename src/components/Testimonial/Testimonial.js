@@ -50,6 +50,7 @@ const Testimonial = () => {
 
    const theme = useTheme();
    const mdWidth = useMediaQuery(theme.breakpoints.down('md'));
+   const smWidth = useMediaQuery(theme.breakpoints.down('sm'));
 
    useEffect(() => {
       if (swiper) {
@@ -97,19 +98,18 @@ const Testimonial = () => {
             })}
          >
             <Box
-               sx={theme => ({
+               component={motion.div}
+               initial={{ opacity: 0, y: -75 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               transition={{ duration: 2, ease: 'easeInOut', delay: 0.8 }}
+               viewport={{ once: true }}
+               sx={{
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  rowGap: '2rem',
-                  [theme.breakpoints.down('md')]: {
-                     rowGap: '1.5rem'
-                  },
-                  [theme.breakpoints.down('sm')]: {
-                     rowGap: '1rem'
-                  }
-               })}
+                  rowGap: mdWidth && !smWidth ? '1.5rem' : mdWidth && smWidth ? '1rem' : '2rem'
+               }}
             >
                <Box
                   sx={{
@@ -120,11 +120,6 @@ const Testimonial = () => {
                >
                   <Typography
                      variant='h3'
-                     component={motion.h3}
-                     initial={{ opacity: 0, y: mdWidth ? -50 : -100 }}
-                     whileInView={{ opacity: 1, y: 0 }}
-                     transition={{ duration: 2, ease: 'easeInOut' }}
-                     viewport={{ once: true }}
                      sx={theme => ({
                         fontWeight: 500,
                         fontFamily: 'Abril Fatface',
@@ -144,11 +139,6 @@ const Testimonial = () => {
                      Testimonials
                   </Typography>
                   <Box
-                     component={motion.div}
-                     initial={{ opacity: 0, y: mdWidth ? -50 : -100 }}
-                     whileInView={{ opacity: 1, y: 0 }}
-                     transition={{ duration: 2, ease: 'easeInOut' }}
-                     viewport={{ once: true }}
                      sx={{
                         height: '4px',
                         width: '65%',
@@ -160,11 +150,6 @@ const Testimonial = () => {
                </Box>
                <Box>
                   <Typography
-                     component={motion.h6}
-                     initial={{ opacity: 0, y: mdWidth ? -50 : -100 }}
-                     whileInView={{ opacity: 1, y: 0 }}
-                     transition={{ duration: 2, ease: 'easeInOut' }}
-                     viewport={{ once: true }}
                      sx={theme => ({
                         color: 'text.secondary',
                         fontWeight: 500,
@@ -186,9 +171,9 @@ const Testimonial = () => {
             <Box
                className='swiper-container'
                component={motion.div}
-               initial={{ opacity: 0, y: mdWidth ? -50 : -100 }}
+               initial={{ opacity: 0, y: -75 }}
                whileInView={{ opacity: 1, y: 0 }}
-               transition={{ duration: 2, ease: 'easeInOut' }}
+               transition={{ duration: 2, ease: 'easeInOut', delay: 0.3 }}
                viewport={{ once: true }}
                sx={{
                   margin: '0 auto',

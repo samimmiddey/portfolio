@@ -10,7 +10,6 @@ const Footer = () => {
    const { darkMode, toggleModal } = useContext(uiContext);
 
    const theme = useTheme();
-   const mdWidth = useMediaQuery(theme.breakpoints.down('md'));
    const smWidth = useMediaQuery(theme.breakpoints.down('sm'));
 
    return (
@@ -21,9 +20,9 @@ const Footer = () => {
          }}
       >
          <motion.div
-            initial={{ opacity: 0, y: mdWidth ? -50 : -100 }}
+            initial={{ opacity: 0, y: -75 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 2, ease: 'easeInOut' }}
+            transition={{ duration: 2, ease: 'easeInOut', delay: 0.3 }}
             viewport={{ once: true }}
          >
             <Box

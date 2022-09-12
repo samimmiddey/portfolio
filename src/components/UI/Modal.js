@@ -7,14 +7,17 @@ import { Button } from '@mui/material';
 
 const creditDetails = [
    {
-      link: <a href="https://www.freepik.com/vectors/website-menu">Website menu vector created by storyset - www.freepik.com</a>
+      link: <a href="https://www.freepik.com/vectors/website-menu">Website menu vector by storyset - www.freepik.com</a>
    },
    {
-      link: <a href="https://www.freepik.com/vectors/social-media-management">Social media management vector created by storyset - www.freepik.com</a>
+      link: <a href="https://www.freepik.com/vectors/social-media-management">Social media management vector by storyset - www.freepik.com</a>
    },
    {
-      link: <a href="https://www.freepik.com/vectors/ui-designer">Ui designer vector created by storyset - www.freepik.com</a>
+      link: <a href="https://www.freepik.com/vectors/ui-designer">Ui designer vector by storyset - www.freepik.com</a>
    },
+   {
+      link: <a href="https://www.freepik.com/free-vector/portfolio-concept-illustration_5465840.htm#query=portfolio&position=29&from_view=search">Image by storyset - www.freepik.com</a>
+   }
 ];
 
 const CreditModal = () => {

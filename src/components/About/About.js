@@ -28,7 +28,6 @@ const About = () => {
    const theme = useTheme();
    const xlWidth = useMediaQuery(theme.breakpoints.down('xl'));
    const mdWidth = useMediaQuery(theme.breakpoints.down('md'));
-   const smWidth = useMediaQuery(theme.breakpoints.down('sm'));
 
    const height = xlWidth && !mdWidth ? '45px' : xlWidth && mdWidth ? '40px' : '50px';
 
@@ -86,9 +85,9 @@ const About = () => {
             })}
          >
             <motion.div
-               initial={{ opacity: 0, x: mdWidth && !smWidth ? -50 : mdWidth && smWidth ? 50 : -100 }}
+               initial={{ opacity: 0, x: -75 }}
                whileInView={{ opacity: 1, x: 0 }}
-               transition={{ duration: 2, ease: 'easeInOut' }}
+               transition={{ duration: 2, ease: 'easeInOut', delay: 0.3 }}
                viewport={{ once: true }}
             >
                <Box
@@ -127,52 +126,47 @@ const About = () => {
                   </Box>
                </Box>
             </motion.div>
-            <Box
-               sx={theme => ({
-                  height: '100%',
-                  width: '100%',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'flex-start',
-                  justifyContent: 'center',
-                  rowGap: '2rem',
-                  [theme.breakpoints.down('md')]: {
-                     rowGap: '1.5rem'
-                  }
-               })}
+            <motion.div
+               initial={{ opacity: 0, x: 75 }}
+               whileInView={{ opacity: 1, x: 0 }}
+               transition={{ duration: 2, ease: 'easeInOut', delay: 0.3 }}
+               viewport={{ once: true }}
             >
-               <Box>
-                  <Typography
-                     variant='h3'
-                     component={motion.h3}
-                     initial={{ opacity: 0, x: mdWidth ? -50 : 100 }}
-                     whileInView={{ opacity: 1, x: 0 }}
-                     transition={{ duration: 2, ease: 'easeInOut' }}
-                     viewport={{ once: true }}
-                     sx={theme => ({
-                        fontWeight: 500,
-                        color: 'text.primary',
-                        fontFamily: 'Abril Fatface',
-                        letterSpacing: 1,
-                        [theme.breakpoints.down('xl')]: {
-                           fontSize: '2.5rem'
-                        },
-                        [theme.breakpoints.down('lg')]: {
-                           fontSize: '2rem'
-                        },
-                        [theme.breakpoints.down('md')]: {
-                           fontSize: '1.75rem'
-                        }
-                     })}
-                  >
-                     About Me
-                  </Typography>
-                  <motion.div
-                     initial={{ opacity: 0, x: mdWidth ? -50 : 100 }}
-                     whileInView={{ opacity: 1, x: 0 }}
-                     transition={{ duration: 2, ease: 'easeInOut' }}
-                     viewport={{ once: true }}
-                  >
+               <Box
+                  sx={theme => ({
+                     height: '100%',
+                     width: '100%',
+                     display: 'flex',
+                     flexDirection: 'column',
+                     alignItems: 'flex-start',
+                     justifyContent: 'center',
+                     rowGap: '2rem',
+                     [theme.breakpoints.down('md')]: {
+                        rowGap: '1.5rem'
+                     }
+                  })}
+               >
+                  <Box>
+                     <Typography
+                        variant='h3'
+                        sx={theme => ({
+                           fontWeight: 500,
+                           color: 'text.primary',
+                           fontFamily: 'Abril Fatface',
+                           letterSpacing: 1,
+                           [theme.breakpoints.down('xl')]: {
+                              fontSize: '2.5rem'
+                           },
+                           [theme.breakpoints.down('lg')]: {
+                              fontSize: '2rem'
+                           },
+                           [theme.breakpoints.down('md')]: {
+                              fontSize: '1.75rem'
+                           }
+                        })}
+                     >
+                        About Me
+                     </Typography>
                      <Box
                         sx={{
                            height: '4px',
@@ -182,53 +176,41 @@ const About = () => {
                            borderRadius: '10px'
                         }}
                      />
-                  </motion.div>
-               </Box>
-               <Box
-                  sx={theme => ({
-                     display: 'flex',
-                     flexDirection: 'column',
-                     rowGap: '1rem',
-                     width: '80%',
-                     marginBottom: '10px',
-                     [theme.breakpoints.down('xl')]: {
-                        width: '90%'
-                     },
-                     [theme.breakpoints.down('lg')]: {
-                        width: '100%'
-                     }
-                  })}
-               >
-                  {aboutText.map((text, index) => (
-                     <Typography
-                        component={motion.h3}
-                        initial={{ opacity: 0, x: mdWidth ? -50 : 100 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 2, ease: 'easeInOut' }}
-                        viewport={{ once: true }}
-                        key={index}
-                        sx={theme => ({
-                           color: 'text.secondary',
-                           fontWeight: 500,
-                           fontSize: '16px',
-                           [theme.breakpoints.down('lg')]: {
-                              fontSize: '15px'
-                           },
-                           [theme.breakpoints.down('sm')]: {
-                              fontSize: '14px'
-                           }
-                        })}
-                     >
-                        {text}
-                     </Typography>
-                  ))}
-               </Box>
-               <motion.div
-                  initial={{ opacity: 0, x: mdWidth ? -50 : 100 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 2, ease: 'easeInOut' }}
-                  viewport={{ once: true }}
-               >
+                  </Box>
+                  <Box
+                     sx={theme => ({
+                        display: 'flex',
+                        flexDirection: 'column',
+                        rowGap: '1rem',
+                        width: '80%',
+                        marginBottom: '10px',
+                        [theme.breakpoints.down('xl')]: {
+                           width: '90%'
+                        },
+                        [theme.breakpoints.down('lg')]: {
+                           width: '100%'
+                        }
+                     })}
+                  >
+                     {aboutText.map((text, index) => (
+                        <Typography
+                           key={index}
+                           sx={theme => ({
+                              color: 'text.secondary',
+                              fontWeight: 500,
+                              fontSize: '16px',
+                              [theme.breakpoints.down('lg')]: {
+                                 fontSize: '15px'
+                              },
+                              [theme.breakpoints.down('sm')]: {
+                                 fontSize: '14px'
+                              }
+                           })}
+                        >
+                           {text}
+                        </Typography>
+                     ))}
+                  </Box>
                   <a href='#contact'>
                      <PrimaryButton
                         text='Contact Me'
@@ -236,8 +218,8 @@ const About = () => {
                         icon={<SendIcon sx={{ marginLeft: '10px', fontSize: '1.3rem' }} />}
                      />
                   </a>
-               </motion.div>
-            </Box>
+               </Box>
+            </motion.div>
          </Box>
       </Box>
    );

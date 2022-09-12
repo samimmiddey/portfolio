@@ -293,6 +293,14 @@ const Home = () => {
                </motion.div>
             </Box>
          </Box>
+         <Box
+            sx={theme => ({
+               [theme.breakpoints.down(500)]: {
+                  height: '60px',
+                  width: '100%',
+               }
+            })}
+         />
       </Box>
    );
 };
