@@ -70,6 +70,39 @@ ul {
   color: #784cfb;
 }
 
+.section-padding {
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+@media screen and (max-width: 1536px) {
+  .section-padding {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+}
+
+@media screen and (max-width: 1250px) {
+  .section-padding {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .section-padding {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .section-padding {
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+  }
+}
+
 /* Navigation */
 .active-navlink {
   color: #784cfb;
@@ -77,6 +110,28 @@ ul {
 
 .nav-list:hover>* {
   color: #784cfb;
+}
+
+/* Home Section */
+.arrow-animation {
+  animation-name: arrowAnimate;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+  animation-duration: 3s;
+}
+
+@keyframes arrowAnimate {
+  from {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(10px);
+  }
+
+  to {
+    transform: translateY(0);
+  }
 }
 
 /* About Section */

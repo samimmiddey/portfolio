@@ -56,7 +56,7 @@ const parent = {
 const children = {
    hidden: {
       opacity: 0,
-      y: -75
+      y: -70
    },
    visible: {
       y: 0,
@@ -89,26 +89,18 @@ const Services = () => {
          }}
       >
          <Box
-            className='container'
+            className='container section-padding'
             sx={theme => ({
-               paddingTop: '8rem',
-               paddingBottom: '8rem',
                display: 'flex',
                flexDirection: 'column',
                rowGap: '3rem',
                [theme.breakpoints.down('xl')]: {
-                  paddingTop: '7rem',
-                  paddingBottom: '7rem',
                   rowGap: '2.75rem'
                },
                [theme.breakpoints.down('lg')]: {
-                  paddingTop: '6rem',
-                  paddingBottom: '6rem',
                   rowGap: '2.5rem'
                },
                [theme.breakpoints.down('md')]: {
-                  paddingTop: '5rem',
-                  paddingBottom: '5rem',
                   rowGap: '2.25rem'
                },
                [theme.breakpoints.down('sm')]: {
@@ -118,7 +110,7 @@ const Services = () => {
             })}
          >
             <motion.div
-               initial={{ opacity: 0, y: -75 }}
+               initial={{ opacity: 0, y: -70 }}
                whileInView={{ opacity: 1, y: 0 }}
                transition={{ duration: 2, ease: 'easeInOut', delay: 0.8 }}
                viewport={{ once: true }}

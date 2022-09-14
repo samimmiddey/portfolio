@@ -50,28 +50,12 @@ const About = () => {
          }}
       >
          <Box
-            className='container'
+            className='container section-padding'
             sx={theme => ({
-               paddingTop: '8rem',
-               paddingBottom: '8rem',
                display: 'grid',
                gridTemplateColumns: 'repeat(2, 1fr)',
                minHeight: '100px',
-               [theme.breakpoints.down('xl')]: {
-                  paddingTop: '7rem',
-                  paddingBottom: '7rem'
-               },
-               [theme.breakpoints.down('lg')]: {
-                  paddingTop: '6rem',
-                  paddingBottom: '6rem',
-               },
-               [theme.breakpoints.down('md')]: {
-                  paddingTop: '5rem',
-                  paddingBottom: '5rem',
-               },
                [theme.breakpoints.down('sm')]: {
-                  paddingTop: '4.5rem',
-                  paddingBottom: '4.5rem',
                   gridTemplateColumns: 'none',
                   gridTemplateRows: 'repeat(2, 1fr)'
                },
@@ -85,7 +69,7 @@ const About = () => {
             })}
          >
             <motion.div
-               initial={{ opacity: 0, x: -75 }}
+               initial={{ opacity: 0, x: -70 }}
                whileInView={{ opacity: 1, x: 0 }}
                transition={{ duration: 2, ease: 'easeInOut', delay: 0.3 }}
                viewport={{ once: true }}
@@ -127,7 +111,7 @@ const About = () => {
                </Box>
             </motion.div>
             <motion.div
-               initial={{ opacity: 0, x: 75 }}
+               initial={{ opacity: 0, x: 70 }}
                whileInView={{ opacity: 1, x: 0 }}
                transition={{ duration: 2, ease: 'easeInOut', delay: 0.3 }}
                viewport={{ once: true }}

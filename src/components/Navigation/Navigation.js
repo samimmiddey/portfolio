@@ -36,7 +36,7 @@ const Navigation = () => {
       navClass && !darkMode ? 'nav-glass' : '';
 
    const { scrollYProgress } = useScroll();
-   const scaleX = useSpring(scrollYProgress, {
+   const scaleX = useSpring(scrollYProgress.lastUpdated > 0 ? scrollYProgress : 0, {
       stiffness: 150,
       damping: 30,
       restDelta: 0.001

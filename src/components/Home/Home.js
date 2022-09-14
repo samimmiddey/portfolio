@@ -1,7 +1,5 @@
 import { Box, Typography, useMediaQuery, useTheme } from '@mui/material';
-import React, { useEffect, useState, useRef, useContext } from 'react';
-// import homeSvg from '../../assets/homesvg.svg';
-// import homeDark from '../../assets/homeDark.svg';
+import React, { useEffect, useRef, useContext } from 'react';
 import PrimaryButton from '../UI/PrimaryButton';
 import DownloadIcon from '@mui/icons-material/Download';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
@@ -39,7 +37,6 @@ const item = {
 const mainText = ['H', 'i', 'I', "'", 'm', 'S', 'a', 'm', 'i', 'm', 'W', 'e', 'b', 'D', 'e', 'v', 'e', 'l', 'o', 'p', 'e', 'r'];
 
 const Home = () => {
-   const [scroll, setScroll] = useState(false);
    const { setNavlink, darkMode } = useContext(uiContext);
 
    const theme = useTheme();
@@ -47,18 +44,6 @@ const Home = () => {
    const mdWidth = useMediaQuery(theme.breakpoints.down('md'));
 
    const height = xlWidth && !mdWidth ? '45px' : xlWidth && mdWidth ? '40px' : '50px';
-
-   useEffect(() => {
-      const scrollInterval = setInterval(() => {
-         if (scroll) {
-            setScroll(false);
-         } else {
-            setScroll(true);
-         }
-      }, 1000);
-
-      return () => clearInterval(scrollInterval);
-   }, [scroll]);
 
    const ref = useRef();
    const isVisible = ObserverHook(ref);
@@ -241,10 +226,9 @@ const Home = () => {
                         Scroll Down
                      </Typography>
                      <ArrowDownwardIcon
+                        className='arrow-animation'
                         sx={{
-                           color: darkMode ? '#5442af' : '#784cfb',
-                           transition: '1s ease',
-                           transform: scroll ? 'translateY(10px)' : 'translateY(0)'
+                           color: darkMode ? '#5442af' : '#784cfb'
                         }}
                      />
                   </Box>
@@ -270,19 +254,6 @@ const Home = () => {
                   }
                })}
             >
-               {/* <motion.img
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  transition={{ duration: 3, ease: 'easeInOut' }}
-                  viewport={{ once: true }}
-                  style={{
-                     height: '100%',
-                     width: '100%',
-                     objectFit: 'contain'
-                  }}
-                  src={darkMode ? homeDark : homeSvg}
-                  alt="Hero"
-               /> */}
                <motion.div
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}

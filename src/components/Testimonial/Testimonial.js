@@ -99,7 +99,7 @@ const Testimonial = () => {
          >
             <Box
                component={motion.div}
-               initial={{ opacity: 0, y: -75 }}
+               initial={{ opacity: 0, y: -70 }}
                whileInView={{ opacity: 1, y: 0 }}
                transition={{ duration: 2, ease: 'easeInOut', delay: 0.8 }}
                viewport={{ once: true }}
@@ -171,7 +171,7 @@ const Testimonial = () => {
             <Box
                className='swiper-container'
                component={motion.div}
-               initial={{ opacity: 0, y: -75 }}
+               initial={{ opacity: 0, y: -70 }}
                whileInView={{ opacity: 1, y: 0 }}
                transition={{ duration: 2, ease: 'easeInOut', delay: 0.3 }}
                viewport={{ once: true }}

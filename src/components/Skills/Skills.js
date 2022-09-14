@@ -74,7 +74,7 @@ const Skills = () => {
       },
       {
          icon: tailwind,
-         text: 'Tailwind'
+         text: 'TailwindCSS'
       },
       {
          icon: nodejs,
@@ -128,31 +128,21 @@ const Skills = () => {
       <Box
          ref={ref}
          id='skills'
-         className='container'
+         className='container section-padding'
          sx={theme => ({
             display: 'grid',
             gridTemplateColumns: 'repeat(2, 1fr)',
             columnGap: '10rem',
-            paddingTop: '8rem',
-            paddingBottom: '8rem',
             [theme.breakpoints.down('xl')]: {
-               paddingTop: '7rem',
-               paddingBottom: '7rem',
                columnGap: '8rem'
             },
             [theme.breakpoints.down('lg')]: {
-               paddingTop: '6rem',
-               paddingBottom: '6rem',
                columnGap: '5rem'
             },
             [theme.breakpoints.down('md')]: {
-               paddingTop: '5rem',
-               paddingBottom: '5rem',
                columnGap: '2rem'
             },
             [theme.breakpoints.down('sm')]: {
-               paddingTop: '4.5rem',
-               paddingBottom: '4.5rem',
                gridTemplateColumns: 'none',
                grid: 'row',
                columnGap: 0,
@@ -161,7 +151,7 @@ const Skills = () => {
          })}
       >
          <motion.div
-            initial={{ opacity: 0, y: -75 }}
+            initial={{ opacity: 0, y: -70 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 2, ease: 'easeInOut', delay: 0.8 }}
             viewport={{ once: true }}
@@ -248,7 +238,7 @@ const Skills = () => {
             </Box>
          </motion.div>
          <motion.div
-            initial={{ opacity: 0, y: -75 }}
+            initial={{ opacity: 0, y: -70 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 2, ease: 'easeInOut', delay: 0.3 }}
             viewport={{ once: true }}

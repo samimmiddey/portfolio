@@ -26,27 +26,19 @@ const Contact = () => {
       <Box
          ref={ref}
          id='contact'
-         className='container'
+         className='container section-padding'
          sx={theme => ({
             overflowX: 'hidden',
-            paddingTop: '8rem',
-            paddingBottom: '8rem',
             display: 'flex',
             flexDirection: 'column',
             rowGap: '3rem',
             [theme.breakpoints.down('xl')]: {
-               paddingTop: '7rem',
-               paddingBottom: '7rem',
                rowGap: '2.75rem'
             },
             [theme.breakpoints.down('lg')]: {
-               paddingTop: '6rem',
-               paddingBottom: '6rem',
                rowGap: '2.5rem'
             },
             [theme.breakpoints.down('md')]: {
-               paddingTop: '5rem',
-               paddingBottom: '5rem',
                rowGap: '2.25rem'
             },
             [theme.breakpoints.down('sm')]: {
@@ -60,7 +52,7 @@ const Contact = () => {
          })}
       >
          <motion.div
-            initial={{ opacity: 0, y: -75 }}
+            initial={{ opacity: 0, y: -70 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 2, ease: 'easeInOut', delay: 0.8 }}
             viewport={{ once: true }}
@@ -139,7 +131,7 @@ const Contact = () => {
          </motion.div>
          <Box
             component={motion.div}
-            initial={{ opacity: 0, y: -75 }}
+            initial={{ opacity: 0, y: -70 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 2, ease: 'easeInOut', delay: 0.3 }}
             viewport={{ once: true }}
@@ -160,7 +152,7 @@ const Contact = () => {
                })}
             >
                <motion.div
-                  initial={{ opacity: 0, x: -75 }}
+                  initial={{ opacity: 0, x: -70 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 2, ease: 'easeInOut', delay: 0.3 }}
                   viewport={{ once: true }}
@@ -170,7 +162,7 @@ const Contact = () => {
             </Grid>
             <Grid
                component={motion.div}
-               initial={{ opacity: 0, x: 75 }}
+               initial={{ opacity: 0, x: 70 }}
                whileInView={{ opacity: 1, x: 0 }}
                transition={{ duration: 2, ease: 'easeInOut', delay: 0.3 }}
                viewport={{ once: true }}

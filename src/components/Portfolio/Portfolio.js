@@ -49,8 +49,8 @@ const projects = [
       title: 'Personal Portfolio',
       categories: ['FRONT END', 'ALL', 'UI/UX'],
       description: 'A modern personal portfolio built using ReactJS, ContextAPI, Material UI, Framer Motion, Leaflet, EmailJS, SwiperJS & much more!',
-      demo: 'https://myreactadminpanel.netlify.app',
-      git: 'https://github.com/samimmiddey/react-admin'
+      demo: 'https://samimmiddey.netlify.app',
+      git: 'https://github.com/samimmiddey/portfolio'
    }
 ];
 
@@ -70,7 +70,7 @@ const parent = {
 const children = {
    hidden: {
       opacity: 0,
-      y: -75
+      y: -70
    },
    visible: {
       y: 0,
@@ -109,26 +109,18 @@ const Portfolio = () => {
       <Box
          ref={ref}
          id='portfolio'
-         className='container'
+         className='container section-padding'
          sx={theme => ({
-            paddingTop: '8rem',
-            paddingBottom: '8rem',
             display: 'flex',
             flexDirection: 'column',
             rowGap: '3rem',
             [theme.breakpoints.down('xl')]: {
-               paddingTop: '7rem',
-               paddingBottom: '7rem',
                rowGap: '2.75rem'
             },
             [theme.breakpoints.down('lg')]: {
-               paddingTop: '6rem',
-               paddingBottom: '6rem',
                rowGap: '2.5rem'
             },
             [theme.breakpoints.down('md')]: {
-               paddingTop: '5rem',
-               paddingBottom: '5rem',
                rowGap: '2.25rem'
             },
             [theme.breakpoints.down('sm')]: {
@@ -138,7 +130,7 @@ const Portfolio = () => {
          })}
       >
          <motion.div
-            initial={{ opacity: 0, y: -75 }}
+            initial={{ opacity: 0, y: -70 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 2, ease: 'easeInOut', delay: 0.3 }}
             viewport={{ once: true }}

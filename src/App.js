@@ -1,20 +1,22 @@
-import { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { Box, createTheme, ThemeProvider } from '@mui/material';
-import Navigation from './components/Navigation/Navigation';
 import './index.css';
-import Home from './components/Home/Home';
-import About from './components/About/About';
-import Skills from './components/Skills/Skills';
-import Services from './components/Services/Services';
-import Portfolio from './components/Portfolio/Portfolio';
-import Testimonial from './components/Testimonial/Testimonial';
-import Contact from './components/Contact/Contact';
 import SuccessSnackbar from './components/UI/SuccessSnackbar';
-import Footer from './components/Footer/Footer';
 import BackToTop from './components/UI/BackToTop';
 import { uiContext } from './components/context/ui-context';
 import CreditModal from './components/UI/Modal';
 import Spinner from './components/UI/Spinner';
+import { Suspense } from 'react';
+
+const Navigation = React.lazy(() => import('./components/Navigation/Navigation'));
+const Home = React.lazy(() => import('./components/Home/Home'));
+const About = React.lazy(() => import('./components/About/About'));
+const Skills = React.lazy(() => import('./components/Skills/Skills'));
+const Services = React.lazy(() => import('./components/Services/Services'));
+const Portfolio = React.lazy(() => import('./components/Portfolio/Portfolio'));
+const Testimonial = React.lazy(() => import('./components/Testimonial/Testimonial'));
+const Contact = React.lazy(() => import('./components/Contact/Contact'));
+const Footer = React.lazy(() => import('./components/Footer/Footer'));
 
 const getDesignTokens = (mode) => ({
 	breakpoints: {
@@ -90,7 +92,6 @@ const getDesignTokens = (mode) => ({
 
 const App = () => {
 	const { darkMode } = useContext(uiContext);
-	const [isLoading, setIsLoading] = useState(true);
 	if (darkMode) {
 		document.body.classList.add('dark');
 	} else {
@@ -101,39 +102,24 @@ const App = () => {
 
 	const theme = createTheme(getDesignTokens(getMode));
 
-
-	// const handleLoading = () => {
-	// 	setIsLoading(false);
-	// }
-
-	useEffect(() => {
-		// window.addEventListener("load", handleLoading);
-		// return () => window.removeEventListener("load", handleLoading);
-		setTimeout(() => setIsLoading(false), 3000);
-	}, []);
-
-	if (isLoading) {
-		return (
-			<Spinner />
-		)
-	}
-
 	return (
 		<ThemeProvider theme={theme}>
-			<Box>
-				<Navigation />
-				<Home />
-				<About />
-				<Skills />
-				<Services />
-				<Portfolio />
-				<Testimonial />
-				<Contact />
-				<Footer />
-				<SuccessSnackbar />
-				<BackToTop />
-				<CreditModal />
-			</Box>
+			<Suspense fallback={<Spinner />}>
+				<Box>
+					<Navigation />
+					<Home />
+					<About />
+					<Skills />
+					<Services />
+					<Portfolio />
+					<Testimonial />
+					<Contact />
+					<Footer />
+					<SuccessSnackbar />
+					<BackToTop />
+					<CreditModal />
+				</Box>
+			</Suspense>
 		</ThemeProvider>
 	);
 };
