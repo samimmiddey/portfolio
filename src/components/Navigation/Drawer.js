@@ -120,14 +120,11 @@ const CustomizedDrawer = () => {
                            onKeyDown={() => toggleDrawer()}
                            className='nav-list'
                            sx={theme => ({
-                              padding: '1.1rem 2rem',
                               borderRadius: '10px',
                               margin: '0 12px',
+                              padding: 0,
                               backgroundColor: ((index === active && !darkMode) && '#ece6fe') ||
                                  ((index === active && darkMode) && '#8d85b9'),
-                              [theme.breakpoints.down('sm')]: {
-                                 padding: '1.05rem 1.5rem',
-                              },
                               "& > *": {
                                  color: index === active && !darkMode ? '#784cfb' :
                                     index === active && darkMode ? '#5442af' :
@@ -141,14 +138,16 @@ const CustomizedDrawer = () => {
                               }
                            })}
                         >
-                           <a href={`#${item.text.toLowerCase()}`}>
+                           <a href={`#${item.text.toLowerCase()}`} style={{ height: '100%', width: '100%' }}>
                               <Box
                                  sx={theme => ({
                                     display: 'flex',
                                     alignItems: 'center',
                                     columnGap: '2rem',
+                                    padding: '1.1rem 2rem',
                                     [theme.breakpoints.down('sm')]: {
-                                       columnGap: '1.5rem'
+                                       columnGap: '1.5rem',
+                                       padding: '1.05rem 1.5rem'
                                     }
                                  })}
                               >
