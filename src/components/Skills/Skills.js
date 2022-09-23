@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useContext } from 'react';
+import React, { useContext } from 'react';
 import html from '../../assets/skills/html.png';
 import css from '../../assets/skills/css.png';
 import js from '../../assets/skills/js.png';
@@ -19,11 +19,10 @@ import { motion } from 'framer-motion';
 import PrimaryButton from '../UI/PrimaryButton';
 import WorkIcon from '@mui/icons-material/Work';
 import { uiContext } from '../context/ui-context';
-import ObserverHook from '../../hooks/ObserverHook';
 import { SiNextdotjs } from 'react-icons/si';
 
 const Skills = () => {
-   const { setNavlink, darkMode } = useContext(uiContext);
+   const { darkMode } = useContext(uiContext);
 
    const theme = useTheme();
    const xlWidth = useMediaQuery(theme.breakpoints.down('xl'));
@@ -115,20 +114,10 @@ const Skills = () => {
 
    const height = xlWidth && !mdWidth ? '45px' : xlWidth && mdWidth ? '40px' : '50px';
 
-   const ref = useRef();
-   const isVisible = ObserverHook(ref);
-
-   useEffect(() => {
-      if (isVisible) {
-         setNavlink('skills');
-      }
-   }, [isVisible, setNavlink]);
-
    return (
       <Box
-         ref={ref}
          id='skills'
-         className='container section-padding'
+         className='container section-padding section'
          sx={theme => ({
             display: 'grid',
             gridTemplateColumns: 'repeat(2, 1fr)',
@@ -151,9 +140,9 @@ const Skills = () => {
          })}
       >
          <motion.div
-            initial={{ opacity: 0, y: -70 }}
+            initial={{ opacity: 0, y: -60 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 2, ease: 'easeInOut', delay: 0.8 }}
+            transition={{ duration: 1.7, ease: 'easeInOut', delay: 0.6 }}
             viewport={{ once: true }}
          >
             <Box
@@ -238,9 +227,9 @@ const Skills = () => {
             </Box>
          </motion.div>
          <motion.div
-            initial={{ opacity: 0, y: -70 }}
+            initial={{ opacity: 0, y: -60 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 2, ease: 'easeInOut', delay: 0.3 }}
+            transition={{ duration: 1.7, ease: 'easeInOut', delay: 0.3 }}
             viewport={{ once: true }}
          >
             <Grid

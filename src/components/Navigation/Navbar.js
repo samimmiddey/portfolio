@@ -7,7 +7,7 @@ import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
 const navigation = ['HOME', 'ABOUT', 'SKILLS', 'SERVICES', 'PORTFOLIO', 'CONTACT'];
 
 const Navbar = () => {
-   const { navlinkID, setNavlink, darkMode, toggleDarkmode } = useContext(uiContext);
+   const { darkMode, toggleDarkmode } = useContext(uiContext);
 
    return (
       <Box
@@ -40,23 +40,21 @@ const Navbar = () => {
                <a
                   href={`#${item.toLowerCase()}`}
                   key={index}
-                  onClick={() => setNavlink(item.toLowerCase())}
                >
                   <ListItem
                      sx={{
-                        borderRadius: '5px'
+                        borderRadius: '5px',
+                        color: darkMode ? '#8d85b9' : 'text.secondary'
                      }}
                   >
                      <Typography
+                        className={`navbar-link ${index === 0 && (darkMode ? 'active-dark' : 'active')}`}
                         sx={{
                            fontSize: '13px',
                            fontWeight: 600,
-                           color: navigation[index].toLowerCase() === navlinkID && !darkMode ? '#784cfb' :
-                              navigation[index].toLowerCase() === navlinkID && darkMode ? '#8d85b9' :
-                                 'text.secondary',
-                           transition: '0.3s',
+                           transition: '200ms',
                            '&:hover': {
-                              color: darkMode ? '#8d85b9' : '#784cfb'
+                              color: darkMode ? '#5442af' : '#784cfb'
                            }
                         }}
                      >

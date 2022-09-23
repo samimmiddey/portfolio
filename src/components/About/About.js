@@ -1,5 +1,5 @@
 import { Box, Typography, useMediaQuery, useTheme } from '@mui/material';
-import React, { useRef, useContext } from 'react';
+import React, { useContext } from 'react';
 import html from '../../assets/skills/html.png';
 import css from '../../assets/skills/css.png';
 import js from '../../assets/skills/js.png';
@@ -9,9 +9,7 @@ import mui from '../../assets/skills/mui.png';
 import PrimaryButton from '../UI/PrimaryButton';
 import SendIcon from '@mui/icons-material/Send';
 import { motion } from 'framer-motion';
-import ObserverHook from '../../hooks/ObserverHook';
 import { uiContext } from '../context/ui-context';
-import { useEffect } from 'react';
 
 const skills = [html, css, js, react, redux, mui];
 
@@ -23,7 +21,7 @@ const aboutText = [
 ];
 
 const About = () => {
-   const { setNavlink, darkMode } = useContext(uiContext);
+   const { darkMode } = useContext(uiContext);
 
    const theme = useTheme();
    const xlWidth = useMediaQuery(theme.breakpoints.down('xl'));
@@ -31,19 +29,10 @@ const About = () => {
 
    const height = xlWidth && !mdWidth ? '45px' : xlWidth && mdWidth ? '40px' : '50px';
 
-   const ref = useRef();
-   const isVisible = ObserverHook(ref);
-
-   useEffect(() => {
-      if (isVisible) {
-         setNavlink('about');
-      }
-   }, [isVisible, setNavlink]);
-
    return (
       <Box
-         ref={ref}
          id='about'
+         className='section'
          sx={{
             backgroundColor: darkMode ? '#211d35' : '#f8f6fe',
             overflowX: 'hidden'
@@ -69,9 +58,9 @@ const About = () => {
             })}
          >
             <motion.div
-               initial={{ opacity: 0, x: -70 }}
+               initial={{ opacity: 0, x: -60 }}
                whileInView={{ opacity: 1, x: 0 }}
-               transition={{ duration: 2, ease: 'easeInOut', delay: 0.3 }}
+               transition={{ duration: 1.7, ease: 'easeInOut', delay: 0.3 }}
                viewport={{ once: true }}
             >
                <Box
@@ -111,9 +100,9 @@ const About = () => {
                </Box>
             </motion.div>
             <motion.div
-               initial={{ opacity: 0, x: 70 }}
+               initial={{ opacity: 0, x: 60 }}
                whileInView={{ opacity: 1, x: 0 }}
-               transition={{ duration: 2, ease: 'easeInOut', delay: 0.3 }}
+               transition={{ duration: 1.7, ease: 'easeInOut', delay: 0.3 }}
                viewport={{ once: true }}
             >
                <Box

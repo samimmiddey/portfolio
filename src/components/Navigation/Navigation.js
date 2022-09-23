@@ -7,6 +7,7 @@ import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
 import { motion, useScroll, useSpring } from "framer-motion";
 import { HiMenuAlt4 } from 'react-icons/hi';
+import { useCallback } from 'react';
 
 const styles = {
    button: {
@@ -16,24 +17,53 @@ const styles = {
 };
 
 const Navigation = () => {
-   const [navClass, setNavClass] = useState('');
+   const [activeNav, setActiveNav] = useState('');
    const { toggleDrawer, darkMode, toggleDarkmode } = useContext(uiContext);
 
    const theme = useTheme();
    const mdWidth = useMediaQuery(theme.breakpoints.down('md'));
 
-   useEffect(() => {
-      window.onscroll = function () {
-         if (window.scrollY > 50) {
-            setNavClass('nav-glass');
-         } else {
-            setNavClass('');
-         }
-      };
-   }, []);
+   const handleScroll = useCallback(() => {
+      const sections = document.querySelectorAll('.section');
+      const navLinks = document.querySelectorAll('.navbar-link');
 
-   const navigationClass = navClass && darkMode ? 'nav-glass-dark' :
-      navClass && !darkMode ? 'nav-glass' : '';
+      if (window.scrollY > 50) {
+         setActiveNav(true);
+      } else {
+         setActiveNav(false);
+      }
+
+      let current = '';
+
+      sections.forEach((section) => {
+         const sectionTop = section.offsetTop;
+         if (window.pageYOffset >= sectionTop - 50) {
+            current = section.getAttribute('id');
+         }
+      });
+
+      navLinks.forEach((link, index) => {
+         if (darkMode) {
+            link.classList.remove('active-dark');
+            if (sections[index].id === current) {
+               link.classList.add('active-dark');
+            }
+         } else {
+            link.classList.remove('active');
+            if (sections[index].id === current) {
+               link.classList.add('active');
+            }
+         }
+      });
+   }, [darkMode]);
+
+   useEffect(() => {
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+   }, [handleScroll]);
+
+   const navigationClass = activeNav && darkMode ? 'nav-glass-dark' :
+      activeNav && !darkMode ? 'nav-glass' : '';
 
    const { scrollYProgress } = useScroll();
    const scaleX = useSpring(scrollYProgress.lastUpdated > 0 ? scrollYProgress : 0, {
@@ -53,7 +83,7 @@ const Navigation = () => {
                left: 0,
                // right: 0,
                width: '100vw',
-               backgroundColor: (!navClass && !darkMode) && '#fff',
+               // backgroundColor: (!activeNav && !darkMode) && '#fff',
                zIndex: 9999,
 
                [theme.breakpoints.down('sm')]: {

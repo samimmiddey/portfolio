@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { Box, Button, Grid, Typography, useMediaQuery, useTheme } from '@mui/material';
 import dashboard from '../../assets/projects/dashboard.svg';
 import dashboardDark from '../../assets/projects/dashboardDark.svg';
@@ -9,9 +9,10 @@ import plantexDark from '../../assets/projects/plantexDark.svg';
 import PortfolioCard from '../UI/PortfolioCard';
 import { motion } from 'framer-motion';
 import { uiContext } from '../context/ui-context';
-import ObserverHook from '../../hooks/ObserverHook';
 import portfolio from '../../assets/projects/portfolio.svg';
 import portfolioDark from '../../assets/projects/portfolioDark.svg';
+import hoobanklight from '../../assets/projects/hoobank-light.svg';
+import hoobankdark from '../../assets/projects/hoobank-dark.svg';
 
 const buttonText = ['All', 'UI/UX', 'Front End', 'Full Stack'];
 
@@ -35,11 +36,20 @@ const projects = [
       git: 'https://github.com/samimmiddey/shopfling'
    },
    {
+      img: hoobanklight,
+      imgDark: hoobankdark,
+      title: 'Hoobank',
+      categories: ['FRONT END', 'ALL', 'UI/UX'],
+      description: 'A modern responsive landing page of a banking website with cool animation, created with ReactJS, TailwindCSS & Framer Motion!',
+      demo: 'https://hoobankofficial.netlify.app',
+      git: 'https://github.com/samimmiddey/hoobank'
+   },
+   {
       img: plantex,
       imgDark: plantexDark,
       title: 'Plantex',
       categories: ['FRONT END', 'ALL', 'UI/UX'],
-      description: 'A modern single page static website with cool javascript animation, created with plain HTML, CSS, Javascript & Scrollreveal!',
+      description: 'A modern responsive landing page with cool JavaScript animation, created with plain HTML, CSS, JavaScript & Scrollreveal!',
       demo: 'https://plantexdesign.netlify.app',
       git: 'https://github.com/samimmiddey/Plantex'
    },
@@ -54,36 +64,8 @@ const projects = [
    }
 ];
 
-const parent = {
-   hidden: {
-      opacity: 0
-   },
-   visible: {
-      opacity: 1,
-      transition: {
-         delay: 0.3,
-         staggerChildren: 0.2
-      }
-   }
-}
-
-const children = {
-   hidden: {
-      opacity: 0,
-      y: -70
-   },
-   visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-         duration: 2,
-         ease: [0.6, 0.01, -0.05, 0.95]
-      }
-   }
-}
-
 const Portfolio = () => {
-   const { setNavlink, darkMode } = useContext(uiContext);
+   const { darkMode } = useContext(uiContext);
 
    const [category, setCategory] = useState({
       value: 'all',
@@ -96,20 +78,10 @@ const Portfolio = () => {
    const theme = useTheme();
    const smWidth = useMediaQuery(theme.breakpoints.down('sm'));
 
-   const ref = useRef();
-   const isVisible = ObserverHook(ref);
-
-   useEffect(() => {
-      if (isVisible) {
-         setNavlink('portfolio');
-      }
-   }, [isVisible, setNavlink]);
-
    return (
       <Box
-         ref={ref}
          id='portfolio'
-         className='container section-padding'
+         className='container section-padding section'
          sx={theme => ({
             display: 'flex',
             flexDirection: 'column',
@@ -129,90 +101,78 @@ const Portfolio = () => {
             }
          })}
       >
-         <motion.div
-            initial={{ opacity: 0, y: -70 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 2, ease: 'easeInOut', delay: 0.3 }}
-            viewport={{ once: true }}
+         <Box
+            sx={theme => ({
+               display: 'flex',
+               flexDirection: 'column',
+               alignItems: 'center',
+               justifyContent: 'center',
+               rowGap: '2rem',
+               [theme.breakpoints.down('md')]: {
+                  rowGap: '1.5rem'
+               },
+               [theme.breakpoints.down('sm')]: {
+                  rowGap: '1rem'
+               }
+            })}
          >
             <Box
-               sx={theme => ({
+               sx={{
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
-                  justifyContent: 'center',
-                  rowGap: '2rem',
-                  [theme.breakpoints.down('md')]: {
-                     rowGap: '1.5rem'
-                  },
-                  [theme.breakpoints.down('sm')]: {
-                     rowGap: '1rem'
-                  }
-               })}
+               }}
             >
+               <Typography
+                  variant='h3'
+                  sx={theme => ({
+                     fontWeight: 500,
+                     color: 'text.primary',
+                     fontFamily: 'Abril Fatface',
+                     letterSpacing: 1,
+                     [theme.breakpoints.down('xl')]: {
+                        fontSize: '2.5rem'
+                     },
+                     [theme.breakpoints.down('lg')]: {
+                        fontSize: '2rem'
+                     },
+                     [theme.breakpoints.down('md')]: {
+                        fontSize: '1.75rem'
+                     }
+                  })}
+               >
+                  Portfolio
+               </Typography>
                <Box
                   sx={{
-                     display: 'flex',
-                     flexDirection: 'column',
-                     alignItems: 'center',
+                     height: '4px',
+                     width: '65%',
+                     backgroundColor: darkMode ? '#5442af' : '#784cfb',
+                     marginTop: '12px',
+                     borderRadius: '10px'
                   }}
-               >
-                  <Typography
-                     variant='h3'
-                     sx={theme => ({
-                        fontWeight: 500,
-                        color: 'text.primary',
-                        fontFamily: 'Abril Fatface',
-                        letterSpacing: 1,
-                        [theme.breakpoints.down('xl')]: {
-                           fontSize: '2.5rem'
-                        },
-                        [theme.breakpoints.down('lg')]: {
-                           fontSize: '2rem'
-                        },
-                        [theme.breakpoints.down('md')]: {
-                           fontSize: '1.75rem'
-                        }
-                     })}
-                  >
-                     Portfolio
-                  </Typography>
-                  <Box
-                     sx={{
-                        height: '4px',
-                        width: '65%',
-                        backgroundColor: darkMode ? '#5442af' : '#784cfb',
-                        marginTop: '12px',
-                        borderRadius: '10px'
-                     }}
-                  />
-               </Box>
-               <Box>
-                  <Typography
-                     sx={theme => ({
-                        color: 'text.secondary',
-                        fontWeight: 500,
-                        textAlign: 'center',
-                        fontSize: '16px',
-                        [theme.breakpoints.down('lg')]: {
-                           fontSize: '15px'
-                        },
-                        [theme.breakpoints.down('sm')]: {
-                           fontSize: '14px'
-                        }
-                     })}
-                  >
-                     All of my latest work created with modern technologies
-                  </Typography>
-               </Box>
+               />
             </Box>
-         </motion.div>
+            <Box>
+               <Typography
+                  sx={theme => ({
+                     color: 'text.secondary',
+                     fontWeight: 500,
+                     textAlign: 'center',
+                     fontSize: '16px',
+                     [theme.breakpoints.down('lg')]: {
+                        fontSize: '15px'
+                     },
+                     [theme.breakpoints.down('sm')]: {
+                        fontSize: '14px'
+                     }
+                  })}
+               >
+                  All of my latest work created with modern technologies
+               </Typography>
+            </Box>
+         </Box>
          <Box
-            component={motion.div}
-            variants={parent}
-            initial='hidden'
-            whileInView='visible'
-            viewport={{ once: true }}
             sx={{
                display: 'flex',
                justifyContent: 'center',
@@ -223,9 +183,6 @@ const Portfolio = () => {
          >
             {buttonText.map((text, index) => (
                <Button
-                  component={motion.button}
-                  variants={children}
-                  viewport={{ once: true }}
                   onClick={() => {
                      setAnimateCard([{ y: 100, opacity: 0 }]);
                      setTimeout(() => {

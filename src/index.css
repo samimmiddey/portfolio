@@ -104,12 +104,12 @@ ul {
 }
 
 /* Navigation */
-.active-navlink {
+.active {
   color: #784cfb;
 }
 
-.nav-list:hover>* {
-  color: #784cfb;
+.active-dark {
+  color: #5442af;
 }
 
 /* Home Section */

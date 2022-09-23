@@ -4,37 +4,36 @@ import Drawer from '@mui/material/Drawer';
 import { IconButton, List, ListItemButton, styled, Typography } from '@mui/material';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { uiContext } from '../context/ui-context';
-import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
-import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
-import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
-import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
-import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
-import HomeRepairServiceIcon from '@mui/icons-material/HomeRepairService';
+import { MdOutlinePersonPin } from 'react-icons/md';
+import { FiEye } from 'react-icons/fi';
+import { BiHomeAlt, BiBriefcaseAlt2 } from 'react-icons/bi';
+import { RiSettings2Line } from 'react-icons/ri';
+import { TiContacts } from 'react-icons/ti';
 
 const navigation = [
    {
       text: 'HOME',
-      icon: HomeOutlinedIcon
+      icon: <BiHomeAlt style={{ fontSize: '1.35rem' }} />
    },
    {
       text: 'ABOUT',
-      icon: AccountCircleOutlinedIcon
+      icon: <MdOutlinePersonPin style={{ fontSize: '1.35rem' }} />
    },
    {
       text: 'SKILLS',
-      icon: SettingsOutlinedIcon
+      icon: <RiSettings2Line style={{ fontSize: '1.35rem' }} />
    },
    {
       text: 'SERVICES',
-      icon: HomeRepairServiceIcon
+      icon: <BiBriefcaseAlt2 style={{ fontSize: '1.35rem' }} />
    },
    {
       text: 'PORTFOLIO',
-      icon: VisibilityOutlinedIcon
+      icon: <FiEye style={{ fontSize: '1.35rem' }} />
    },
    {
       text: 'CONTACT',
-      icon: PersonOutlineOutlinedIcon
+      icon: <TiContacts style={{ fontSize: '1.35rem' }} />
    }
 ];
 
@@ -112,54 +111,65 @@ const CustomizedDrawer = () => {
                      }}
                   >
                      {navigation.map((item, index) => (
-                        <a
-                           href={`#${item.text.toLowerCase()}`}
+                        <ListItemButton
                            key={index}
-                           onClick={() => setActive(index)}
-                        >
-                           <ListItemButton
-                              onClick={() => toggleDrawer()}
-                              onKeyDown={() => toggleDrawer()}
-                              className='nav-list'
-                              sx={theme => ({
-                                 display: 'flex',
-                                 alignItems: 'center',
-                                 padding: '1rem 2rem',
-                                 columnGap: '2rem',
-                                 backgroundColor: ((index === active && !darkMode) && '#ece6fe') ||
-                                    ((index === active && darkMode) && '#8d85b9'),
-                                 [theme.breakpoints.down('sm')]: {
-                                    padding: '1rem 1.5rem',
-                                    columnGap: '1.5rem'
-                                 },
+                           onClick={() => {
+                              setActive(index);
+                              toggleDrawer();
+                           }}
+                           onKeyDown={() => toggleDrawer()}
+                           className='nav-list'
+                           sx={theme => ({
+                              padding: '1.1rem 2rem',
+                              borderRadius: '10px',
+                              margin: '0 12px',
+                              backgroundColor: ((index === active && !darkMode) && '#ece6fe') ||
+                                 ((index === active && darkMode) && '#8d85b9'),
+                              [theme.breakpoints.down('sm')]: {
+                                 padding: '1.05rem 1.5rem',
+                              },
+                              "& > *": {
+                                 color: index === active && !darkMode ? '#784cfb' :
+                                    index === active && darkMode ? '#5442af' :
+                                       'text.secondary',
+                              },
+                              "&:hover": {
+                                 backgroundColor: darkMode ? '#8d85b9' : "#ece6fe",
                                  "& > *": {
-                                    color: index === active && !darkMode ? '#784cfb' :
-                                       index === active && darkMode ? '#5442af' :
-                                          'text.secondary',
-                                 },
-                                 "&:hover": {
-                                    backgroundColor: darkMode ? '#c2beda' : "#ece6fe"
+                                    color: darkMode ? '#5442af' : '#784cfb'
                                  }
-                              })}
-                           >
-                              <item.icon />
-                              <Typography
-                                 sx={{
-                                    fontSize: '13px',
-                                    fontWeight: 600,
-                                    transition: '0.3s'
-                                 }}
+                              }
+                           })}
+                        >
+                           <a href={`#${item.text.toLowerCase()}`}>
+                              <Box
+                                 sx={theme => ({
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    columnGap: '2rem',
+                                    [theme.breakpoints.down('sm')]: {
+                                       columnGap: '1.5rem'
+                                    }
+                                 })}
                               >
-                                 {item.text}
-                              </Typography>
-                           </ListItemButton>
-                        </a>
+                                 {item.icon}
+                                 <Typography
+                                    sx={{
+                                       fontSize: '13px',
+                                       fontWeight: 600
+                                    }}
+                                 >
+                                    {item.text}
+                                 </Typography>
+                              </Box>
+                           </a>
+                        </ListItemButton>
                      ))}
                   </List>
                </Box>
             </Box>
-         </Drawer>
-      </Box>
+         </Drawer >
+      </Box >
    );
 }
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useContext } from 'react';
+import React, { useContext } from 'react';
 import { Box, Card, Grid, Typography } from '@mui/material';
 import frontend from '../../assets/frontend.png';
 import frontendDark from '../../assets/frontendDark.png';
@@ -11,7 +11,6 @@ import uiDark from '../../assets/uiDark.png';
 import Tilt from 'react-parallax-tilt';
 import { motion } from 'framer-motion';
 import { uiContext } from '../context/ui-context';
-import ObserverHook from '../../hooks/ObserverHook';
 
 const skillsDetails = [
    {
@@ -56,34 +55,25 @@ const parent = {
 const children = {
    hidden: {
       opacity: 0,
-      y: -70
+      y: -60
    },
    visible: {
       y: 0,
       opacity: 1,
       transition: {
-         duration: 2,
+         duration: 3,
          ease: [0.6, 0.01, -0.05, 0.95]
       }
    }
 }
 
 const Services = () => {
-   const { setNavlink, darkMode } = useContext(uiContext);
-
-   const ref = useRef();
-   const isVisible = ObserverHook(ref);
-
-   useEffect(() => {
-      if (isVisible) {
-         setNavlink('services');
-      }
-   }, [isVisible, setNavlink]);
+   const { darkMode } = useContext(uiContext);
 
    return (
       <Box
-         ref={ref}
          id='services'
+         className='section'
          sx={{
             backgroundColor: darkMode ? '#211d35' : '#f8f6fe'
          }}
@@ -110,9 +100,9 @@ const Services = () => {
             })}
          >
             <motion.div
-               initial={{ opacity: 0, y: -70 }}
+               initial={{ opacity: 0, y: -60 }}
                whileInView={{ opacity: 1, y: 0 }}
-               transition={{ duration: 2, ease: 'easeInOut', delay: 0.8 }}
+               transition={{ duration: 1.7, ease: 'easeInOut', delay: 0.6 }}
                viewport={{ once: true }}
             >
                <Box

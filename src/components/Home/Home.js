@@ -1,11 +1,10 @@
 import { Box, Typography, useMediaQuery, useTheme } from '@mui/material';
-import React, { useEffect, useRef, useContext } from 'react';
+import React, { useContext } from 'react';
 import PrimaryButton from '../UI/PrimaryButton';
 import DownloadIcon from '@mui/icons-material/Download';
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
-import MouseOutlinedIcon from '@mui/icons-material/MouseOutlined';
+import { CgMouse } from 'react-icons/cg';
+import { RiArrowDownLine } from 'react-icons/ri';
 import { motion } from 'framer-motion';
-import ObserverHook from '../../hooks/ObserverHook';
 import { uiContext } from '../context/ui-context';
 import HomeLottie from '../UI/HomeLottie';
 const parent = {
@@ -37,7 +36,7 @@ const item = {
 const mainText = ['H', 'i', 'I', "'", 'm', 'S', 'a', 'm', 'i', 'm', 'W', 'e', 'b', 'D', 'e', 'v', 'e', 'l', 'o', 'p', 'e', 'r'];
 
 const Home = () => {
-   const { setNavlink, darkMode } = useContext(uiContext);
+   const { darkMode } = useContext(uiContext);
 
    const theme = useTheme();
    const xlWidth = useMediaQuery(theme.breakpoints.down('xl'));
@@ -45,21 +44,10 @@ const Home = () => {
 
    const height = xlWidth && !mdWidth ? '45px' : xlWidth && mdWidth ? '40px' : '50px';
 
-   const ref = useRef();
-   const isVisible = ObserverHook(ref);
-
-   useEffect(() => {
-      if (isVisible) {
-         setNavlink('home');
-      }
-   }, [isVisible, setNavlink]);
-
-
    return (
       <Box
-         ref={ref}
          id='home'
-         className='container'
+         className='container section'
       >
          <Box
             sx={theme => ({
@@ -213,7 +201,7 @@ const Home = () => {
                         }
                      })}
                   >
-                     <MouseOutlinedIcon sx={{ color: darkMode ? '#5442af' : '#784cfb' }} />
+                     <CgMouse style={{ color: darkMode ? '#5442af' : '#784cfb', fontSize: '1.5rem' }} />
                      <Typography
                         sx={theme => ({
                            color: 'text.secondary',
@@ -225,10 +213,11 @@ const Home = () => {
                      >
                         Scroll Down
                      </Typography>
-                     <ArrowDownwardIcon
+                     <RiArrowDownLine
                         className='arrow-animation'
-                        sx={{
-                           color: darkMode ? '#5442af' : '#784cfb'
+                        style={{
+                           color: darkMode ? '#5442af' : '#784cfb',
+                           fontSize: '1.5rem'
                         }}
                      />
                   </Box>

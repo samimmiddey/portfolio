@@ -1,32 +1,21 @@
-import React, { useRef, useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { Box, Grid, Typography, useMediaQuery, useTheme } from '@mui/material';
 import ContactForm from './ContactForm';
 import GoogleMap from './GoogleMap';
 import ContactMethods from './ContactMethods';
 import { motion } from 'framer-motion';
 import { uiContext } from '../context/ui-context';
-import ObserverHook from '../../hooks/ObserverHook';
 
 const Contact = () => {
-   const { setNavlink, darkMode } = useContext(uiContext);
+   const { darkMode } = useContext(uiContext);
 
    const theme = useTheme();
    const mdWidth = useMediaQuery(theme.breakpoints.down('md'));
 
-   const ref = useRef();
-   const isVisible = ObserverHook(ref);
-
-   useEffect(() => {
-      if (isVisible) {
-         setNavlink('contact');
-      }
-   }, [isVisible, setNavlink]);
-
    return (
       <Box
-         ref={ref}
          id='contact'
-         className='container section-padding'
+         className='container section-padding section'
          sx={theme => ({
             overflowX: 'hidden',
             display: 'flex',
@@ -52,9 +41,9 @@ const Contact = () => {
          })}
       >
          <motion.div
-            initial={{ opacity: 0, y: -70 }}
+            initial={{ opacity: 0, y: -60 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 2, ease: 'easeInOut', delay: 0.8 }}
+            transition={{ duration: 1.7, ease: 'easeInOut', delay: 0.6 }}
             viewport={{ once: true }}
          >
             <Box
@@ -131,9 +120,9 @@ const Contact = () => {
          </motion.div>
          <Box
             component={motion.div}
-            initial={{ opacity: 0, y: -70 }}
+            initial={{ opacity: 0, y: -60 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 2, ease: 'easeInOut', delay: 0.3 }}
+            transition={{ duration: 1.7, ease: 'easeInOut', delay: 0.3 }}
             viewport={{ once: true }}
          >
             <ContactMethods />
@@ -152,9 +141,9 @@ const Contact = () => {
                })}
             >
                <motion.div
-                  initial={{ opacity: 0, x: -70 }}
+                  initial={{ opacity: 0, x: -60 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 2, ease: 'easeInOut', delay: 0.3 }}
+                  transition={{ duration: 1.7, ease: 'easeInOut', delay: 0.3 }}
                   viewport={{ once: true }}
                >
                   <ContactForm />
@@ -162,9 +151,9 @@ const Contact = () => {
             </Grid>
             <Grid
                component={motion.div}
-               initial={{ opacity: 0, x: 70 }}
+               initial={{ opacity: 0, x: 60 }}
                whileInView={{ opacity: 1, x: 0 }}
-               transition={{ duration: 2, ease: 'easeInOut', delay: 0.3 }}
+               transition={{ duration: 1.7, ease: 'easeInOut', delay: 0.3 }}
                viewport={{ once: true }}
                item xs={12} sm={12} md={6} lg={6} xl={6}
                sx={theme => ({
