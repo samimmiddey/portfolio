@@ -1,25 +1,27 @@
 import React, { useState, useContext } from 'react';
 import { Box, Button, Grid, Typography, useMediaQuery, useTheme } from '@mui/material';
-import dashboard from '../../assets/projects/dashboard.svg';
-import dashboardDark from '../../assets/projects/dashboardDark.svg';
-import ecommerce from '../../assets/projects/ecommerce.svg';
-import ecommerceDark from '../../assets/projects/ecommerceDark.svg';
-import plantex from '../../assets/projects/plantex.svg';
-import plantexDark from '../../assets/projects/plantexDark.svg';
+import shopcultlight from '../../assets/projects/shopcultlight.svg';
+import shopcultdark from '../../assets/projects/shopcultdark.svg';
+import shopflinglight from '../../assets/projects/shopflinglight.svg';
+import shopflingdark from '../../assets/projects/shopflingdark.svg';
+import youtubelight from '../../assets/projects/youtubelight.svg';
+import youtubedark from '../../assets/projects/youtubedark.svg';
+import hoobanklight from '../../assets/projects/hoobanklight.svg';
+import hoobankdark from '../../assets/projects/hoobankdark.svg';
+import portfoliolight from '../../assets/projects/portfoliolight.svg';
+import portfoliodark from '../../assets/projects/portfoliodark.svg';
+import plantexlight from '../../assets/projects/plantexlight.svg';
+import plantexdark from '../../assets/projects/plantexdark.svg';
 import PortfolioCard from '../UI/PortfolioCard';
 import { motion } from 'framer-motion';
 import { uiContext } from '../context/ui-context';
-import portfolio from '../../assets/projects/portfolio.svg';
-import portfolioDark from '../../assets/projects/portfolioDark.svg';
-import hoobanklight from '../../assets/projects/hoobank-light.svg';
-import hoobankdark from '../../assets/projects/hoobank-dark.svg';
 
 const buttonText = ['All', 'UI/UX', 'Front End', 'Full Stack'];
 
 const projects = [
    {
-      img: ecommerce,
-      imgDark: ecommerceDark,
+      img: shopcultlight,
+      imgDark: shopcultdark,
       title: 'Shopcult',
       categories: ['FULL STACK', 'ALL'],
       description: 'A modern ecommerce website built using ReactJS, Redux Toolkit, Material UI, CommerceJS, Firebase, Stripe, SwiperJS & much more!',
@@ -27,13 +29,22 @@ const projects = [
       git: 'https://github.com/samimmiddey/shopcult'
    },
    {
-      img: dashboard,
-      imgDark: dashboardDark,
+      img: shopflinglight,
+      imgDark: shopflingdark,
       title: 'Shopfling',
       categories: ['FRONT END', 'ALL', 'UI/UX'],
       description: 'A modern React dashboard built using ReactJS, ContextAPI, Material UI, Syncfusion Components with dark mode, theming & much more!',
       demo: 'https://shopfling.netlify.app',
       git: 'https://github.com/samimmiddey/shopfling'
+   },
+   {
+      img: youtubelight,
+      imgDark: youtubedark,
+      title: 'YouTube 2.0',
+      categories: ['FRONT END', 'ALL', 'UI/UX'],
+      description: 'A YouTube replica application built using NextJS, ContextAPI, Material UI with features such as dark mode, searching ability & much more!',
+      demo: 'https://youtubereplica.vercel.app',
+      git: 'https://github.com/samimmiddey/youtubereplica'
    },
    {
       img: hoobanklight,
@@ -45,23 +56,23 @@ const projects = [
       git: 'https://github.com/samimmiddey/hoobank'
    },
    {
-      img: plantex,
-      imgDark: plantexDark,
+      img: portfoliolight,
+      imgDark: portfoliodark,
+      title: 'Personal Portfolio',
+      categories: ['FRONT END', 'ALL', 'UI/UX'],
+      description: 'A modern personal portfolio built using ReactJS, ContextAPI, Material UI, Framer Motion, Leaflet, EmailJS, SwiperJS & much more!',
+      demo: 'https://samimmiddey.netlify.app',
+      git: 'https://github.com/samimmiddey/portfolio'
+   },
+   {
+      img: plantexlight,
+      imgDark: plantexdark,
       title: 'Plantex',
       categories: ['FRONT END', 'ALL', 'UI/UX'],
       description: 'A modern responsive landing page with cool JavaScript animation, created with plain HTML, CSS, JavaScript & Scrollreveal!',
       demo: 'https://plantexdesign.netlify.app',
       git: 'https://github.com/samimmiddey/Plantex'
    },
-   {
-      img: portfolio,
-      imgDark: portfolioDark,
-      title: 'Personal Portfolio',
-      categories: ['FRONT END', 'ALL', 'UI/UX'],
-      description: 'A modern personal portfolio built using ReactJS, ContextAPI, Material UI, Framer Motion, Leaflet, EmailJS, SwiperJS & much more!',
-      demo: 'https://samimmiddey.netlify.app',
-      git: 'https://github.com/samimmiddey/portfolio'
-   }
 ];
 
 const Portfolio = () => {

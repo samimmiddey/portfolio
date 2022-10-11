@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Box, Button, Card, CardContent, CardMedia, Typography, useMediaQuery, useTheme } from '@mui/material';
+import { Box, Button, Card, CardContent, Typography, useMediaQuery, useTheme } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import Tilt from 'react-parallax-tilt';
@@ -9,7 +9,6 @@ const PortfolioCard = ({ details }) => {
    const { darkMode } = useContext(uiContext);
 
    const theme = useTheme();
-   const lgWidth = useMediaQuery(theme.breakpoints.down('lg'));
    const smWidth = useMediaQuery(theme.breakpoints.down('sm'));
 
    return (
@@ -30,12 +29,15 @@ const PortfolioCard = ({ details }) => {
                }
             }}
          >
-            <CardMedia
-               component="img"
-               alt="Image"
-               height={lgWidth && !smWidth ? '175' : lgWidth && smWidth ? '150' : '200'}
-               image={darkMode ? details.imgDark : details.img}
-            // sx={{padding: '0.5rem 0.5rem 0 0.5rem'}}
+            <img
+               src={darkMode ? details.imgDark : details.img}
+               alt=""
+               style={{
+                  maxHeight: '200px',
+                  height: '100%',
+                  width: '100%',
+                  objectFit: 'contain'
+               }}
             />
             <CardContent
                sx={{

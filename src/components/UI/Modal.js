@@ -7,16 +7,22 @@ import { Button } from '@mui/material';
 
 const creditDetails = [
    {
-      link: <a href="https://www.freepik.com/vectors/website-menu">Website menu vector by storyset - www.freepik.com</a>
+      link: <a href="https://www.freepik.com/vectors/website-menu">Image by storyset - www.freepik.com</a>
    },
    {
-      link: <a href="https://www.freepik.com/vectors/social-media-management">Social media management vector by storyset - www.freepik.com</a>
+      link: <a href="https://www.freepik.com/vectors/social-media-management">Image by storyset - www.freepik.com</a>
    },
    {
-      link: <a href="https://www.freepik.com/vectors/ui-designer">Ui designer vector by storyset - www.freepik.com</a>
+      link: <a href="https://www.freepik.com/free-vector/people-watching-news-concept-illustration_8673467.htm#query=watching&position=8&from_view=search&track=sph">Image by storyset - www.freepik.com</a>
+   },
+   {
+      link: <a href="https://www.freepik.com/free-vector/design-team-concept-illustration_11641476.htm#query=ui&position=18&from_view=search&track=sph">Image by storyset - www.freepik.com</a>
    },
    {
       link: <a href="https://www.freepik.com/free-vector/portfolio-concept-illustration_5465840.htm#query=portfolio&position=29&from_view=search">Image by storyset - www.freepik.com</a>
+   },
+   {
+      link: <a href="https://www.freepik.com/free-vector/mobile-testing-concept-illustration_7230644.htm#query=ui%20ux&position=49&from_view=search&track=sph">Image by storyset - www.freepik.com</a>
    }
 ];
 
