@@ -1,5 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { Box, Button, Grid, Typography, useMediaQuery, useTheme } from '@mui/material';
+import inspirelight from '../../assets/projects/inspirelight.svg';
+import inspiredark from '../../assets/projects/inspiredark.svg';
 import shopcultlight from '../../assets/projects/shopcultlight.svg';
 import shopcultdark from '../../assets/projects/shopcultdark.svg';
 import shopflinglight from '../../assets/projects/shopflinglight.svg';
@@ -19,6 +21,15 @@ import { uiContext } from '../context/ui-context';
 const buttonText = ['All', 'UI/UX', 'Front End', 'Full Stack'];
 
 const projects = [
+   {
+      img: inspirelight,
+      imgDark: inspiredark,
+      title: 'Inspire',
+      categories: ['FULL STACK', 'ALL'],
+      description: 'A modern full stack social media application built using NextJS, Redux Toolkit, Material UI, Firebase, Sanity, Socket IO & much more!',
+      demo: 'https://inspire-app.vercel.app',
+      git: 'https://github.com/samimmiddey/inspire-frontend'
+   },
    {
       img: shopcultlight,
       imgDark: shopcultdark,

@@ -149,36 +149,51 @@ const Footer = () => {
                   })}
                >
                   {[
-                     <RiFacebookFill style={{ fontSize: '1.5rem' }} />,
-                     <RiLinkedinFill style={{ fontSize: '1.5rem' }} />,
-                     <RiGithubFill style={{ fontSize: '1.5rem' }} />
-                  ].map((icon, index) => (
-                     <Button
+                     {
+                        icon: <RiFacebookFill style={{ fontSize: '1.5rem' }} />,
+                        link: 'https://www.facebook.com/middeysamim'
+                     },
+                     {
+                        icon: <RiLinkedinFill style={{ fontSize: '1.5rem' }} />,
+                        link: 'https://www.linkedin.com/in/samim-middey-426126256/'
+                     },
+                     {
+                        icon: <RiGithubFill style={{ fontSize: '1.5rem' }} />,
+                        link: 'https://github.com/samimmiddey'
+                     }
+                  ].map((item, index) => (
+                     <a
+                        href={item.link}
+                        target='_blank'
+                        rel="noreferrer"
                         key={index}
-                        disableElevation
-                        variant='contained'
-                        // color='secondary'
-                        sx={theme => ({
-                           color: darkMode ? '#292442' : '#fff',
-                           minHeight: 0,
-                           backgroundColor: darkMode ? '#8d85b9' : '#6039d6',
-                           minWidth: 0,
-                           padding: '10px',
-                           borderRadius: '50%',
-                           transition: '300ms ease',
-                           [theme.breakpoints.down('md')]: {
-                              padding: '9px'
-                           },
-                           [theme.breakpoints.down('sm')]: {
-                              padding: '8px'
-                           },
-                           '&:hover': {
-                              backgroundColor: darkMode ? '#675da2' : '#4423a9',
-                           }
-                        })}
                      >
-                        {icon}
-                     </Button>
+                        <Button
+                           disableElevation
+                           variant='contained'
+                           // color='secondary'
+                           sx={theme => ({
+                              color: darkMode ? '#292442' : '#fff',
+                              minHeight: 0,
+                              backgroundColor: darkMode ? '#8d85b9' : '#6039d6',
+                              minWidth: 0,
+                              padding: '10px',
+                              borderRadius: '50%',
+                              transition: '300ms ease',
+                              [theme.breakpoints.down('md')]: {
+                                 padding: '9px'
+                              },
+                              [theme.breakpoints.down('sm')]: {
+                                 padding: '8px'
+                              },
+                              '&:hover': {
+                                 backgroundColor: darkMode ? '#675da2' : '#4423a9',
+                              }
+                           })}
+                        >
+                           {item.icon}
+                        </Button>
+                     </a>
                   ))}
                </Box>
                <Box>

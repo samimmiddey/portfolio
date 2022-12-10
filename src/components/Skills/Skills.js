@@ -8,12 +8,12 @@ import redux from '../../assets/skills/redux.png';
 import mui from '../../assets/skills/mui.png';
 import git from '../../assets/skills/git.png';
 import github from '../../assets/skills/github.png';
-import nodejs from '../../assets/skills/nodejs.png';
-import express from '../../assets/skills/express.png';
-import mongodb from '../../assets/skills/mongodb.png';
 import figma from '../../assets/skills/figma.png';
 import firebase from '../../assets/skills/firebase.png';
 import tailwind from '../../assets/skills/tailwind.png';
+import context from '../../assets/skills/context.png';
+import sanity from '../../assets/skills/sanity.png';
+import framer from '../../assets/skills/framer.png';
 import { Box, Grid, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { motion } from 'framer-motion';
 import PrimaryButton from '../UI/PrimaryButton';
@@ -64,6 +64,10 @@ const Skills = () => {
          text: 'NextJS'
       },
       {
+         icon: context,
+         text: 'ContextAPI'
+      },
+      {
          icon: redux,
          text: 'Redux'
       },
@@ -76,16 +80,20 @@ const Skills = () => {
          text: 'TailwindCSS'
       },
       {
-         icon: nodejs,
-         text: 'NodeJS'
+         icon: firebase,
+         text: 'Firebase'
       },
       {
-         icon: express,
-         text: 'ExpressJS'
+         icon: sanity,
+         text: 'Sanity'
       },
       {
-         icon: mongodb,
-         text: 'MongoDB'
+         icon: framer,
+         text: 'Framer Motion'
+      },
+      {
+         icon: figma,
+         text: 'Figma'
       },
       {
          icon: git,
@@ -94,21 +102,13 @@ const Skills = () => {
       {
          icon: github,
          text: 'Github'
-      },
-      {
-         icon: figma,
-         text: 'Figma'
-      },
-      {
-         icon: firebase,
-         text: 'Firebase'
       }
    ];
 
-   const colors = ['#ff9900', '#3399ff', '#cccc00', '#ff6699', '#33bbff', '#0099cc', '#9933ff', '#3399ff', '#00ccff', '#00cc00', '#339933', '#669900', '#ff6600', '#006699', '#cc6699', '#e6b800'];
+   const colors = ['#ff9900', '#3399ff', '#cccc00', '#ff6699', '#33bbff', '#0099cc', '#53C1DE', '#9933ff', '#3399ff', '#00ccff', '#e6b800', '#ff471a', '#4d88ff', '#cc6699', '#ff6600', '#006699'];
 
    const skillsText = [
-      "I work with all the modern technologies such as HTML5, CSS3, SCSS, JavaScript, Material UI, ReactJS, NextJS, Redux, Redux Toolkit, Framer Motion, TailwindCSS, NodeJS, ExpressJS, MongoDB, Git, Firebase, Figma etc. I have a good sense of aesthetics and experience in responsive web design. I put special efforts into optimizing the code and make use of all the best use cases for all the technologies that I use.",
+      "I work with all the modern technologies such as ReactJS, NextJS, Redux, Material UI, Tailwind etc. I have a good sense of aesthetics and experience in responsive web design. I put special efforts into optimizing the code and make use of all the best use cases for all the technologies that I use.",
       "I put a lot of thoughts into designing and consider all the possible hurdles before coming up with a solution which is not only visually stunning, but also functional as per requirement. Because providing the best user experience possible is the ultimate goal!"
    ];
 
@@ -205,6 +205,7 @@ const Skills = () => {
                            color: 'text.secondary',
                            fontWeight: 500,
                            fontSize: '16px',
+                           lineHeight: '1.6',
                            [theme.breakpoints.down('lg')]: {
                               fontSize: '15px'
                            },

@@ -145,6 +145,7 @@ const TestimonialCard = ({ data }) => {
                      fontWeight: 500,
                      fontSize: '14px',
                      textAlign: 'center',
+                     lineHeight: '1.6',
                      [theme.breakpoints.down('sm')]: {
                         fontSize: '13px'
                      }

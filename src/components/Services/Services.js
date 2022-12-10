@@ -6,8 +6,8 @@ import designer from '../../assets/designer.png';
 import designerDark from '../../assets/designerDark.png';
 import development from '../../assets/development.png';
 import developmentDark from '../../assets/developmentDark.png';
-import ui from '../../assets/ui.png';
-import uiDark from '../../assets/uiDark.png';
+import next from '../../assets/next.png';
+import nextDark from '../../assets/nextdark.png';
 import Tilt from 'react-parallax-tilt';
 import { motion } from 'framer-motion';
 import { uiContext } from '../context/ui-context';
@@ -16,20 +16,20 @@ const skillsDetails = [
    {
       title: 'UI/UX Designing',
       description: "I make sure that not only the UI is aesthetically pleasing, but the user experience as well",
-      icon: ui,
-      iconDark: uiDark
-   },
-   {
-      title: 'Web Designer',
-      description: "I'm a web designer with a passion for creating beautiful functional web applications",
       icon: designer,
       iconDark: designerDark
    },
    {
-      title: 'React Developer',
-      description: "I build web applications using React JS and many other modern front end technologies",
+      title: 'ReactJS Developer',
+      description: "I build web applications using ReactJS and many other modern front end technologies",
       icon: development,
       iconDark: developmentDark,
+   },
+   {
+      title: 'NextJS Developer',
+      description: "I build web applications using NextJS and optimize them to their maximum potential",
+      icon: next,
+      iconDark: nextDark,
    },
    {
       title: 'Front End Developer',

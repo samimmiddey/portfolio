@@ -23,6 +23,9 @@ const creditDetails = [
    },
    {
       link: <a href="https://www.freepik.com/free-vector/mobile-testing-concept-illustration_7230644.htm#query=ui%20ux&position=49&from_view=search&track=sph">Image by storyset - www.freepik.com</a>
+   },
+   {
+      link: <a href="https://www.freepik.com/free-vector/online-concept-illustration_7769789.htm#page=3&query=social%20networking&position=2&from_view=search&track=sph">Image by storyset - www.freepik.com</a>
    }
 ];
 

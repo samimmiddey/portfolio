@@ -172,6 +172,7 @@ const About = () => {
                               color: 'text.secondary',
                               fontWeight: 500,
                               fontSize: '16px',
+                              lineHeight: '1.6',
                               [theme.breakpoints.down('lg')]: {
                                  fontSize: '15px'
                               },
