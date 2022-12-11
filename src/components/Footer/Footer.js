@@ -155,7 +155,7 @@ const Footer = () => {
                      },
                      {
                         icon: <RiLinkedinFill style={{ fontSize: '1.5rem' }} />,
-                        link: 'https://www.linkedin.com/in/samim-middey-426126256/'
+                        link: 'https://www.linkedin.com/in/samimmiddey'
                      },
                      {
                         icon: <RiGithubFill style={{ fontSize: '1.5rem' }} />,
