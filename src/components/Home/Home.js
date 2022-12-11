@@ -7,6 +7,8 @@ import { RiArrowDownLine } from 'react-icons/ri';
 import { motion } from 'framer-motion';
 import { uiContext } from '../context/ui-context';
 import HomeLottie from '../UI/HomeLottie';
+import resume from '../../assets/Resume.pdf';
+
 const parent = {
    hidden: {
       opacity: 0
@@ -175,11 +177,13 @@ const Home = () => {
                   transition={{ duration: 2, ease: 'easeInOut' }}
                   viewport={{ once: true }}
                >
-                  <PrimaryButton
-                     text='Download CV'
-                     height={height}
-                     icon={<DownloadIcon sx={{ marginLeft: '10px' }} />}
-                  />
+                  <a href={resume} download>
+                     <PrimaryButton
+                        text='Download CV'
+                        height={height}
+                        icon={<DownloadIcon sx={{ marginLeft: '10px' }} />}
+                     />
+                  </a>
                </motion.div>
                <motion.div
                   initial={{ opacity: 0, y: 100 }}
