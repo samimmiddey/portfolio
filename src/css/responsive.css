@@ -1,0 +1,147 @@
+@media screen and (max-width: 1536px) {
+   .section-padding {
+      padding-top: 6.5rem !important;
+      padding-bottom: 6.5rem !important;
+   }
+
+   .container {
+      max-width: 1140px;
+      padding: 0 1rem;
+   }
+
+   .nav-container {
+      max-width: 1172px;
+      padding: 0 1rem;
+   }
+
+   .skill-icon {
+      height: 38px;
+      width: 38px;
+   }
+
+   .service-icon {
+      width: 56px;
+   }
+
+   .scroller-icon {
+      width: 40px;
+   }
+}
+
+@media screen and (max-width: 1250px) {
+   .section-padding {
+      padding-top: 6rem !important;
+      padding-bottom: 6rem !important;
+   }
+
+   .container {
+      max-width: 960px;
+   }
+
+   .nav-container {
+      max-width: 992px;
+   }
+
+   .skill-icon {
+      height: 35px;
+      width: 35px;
+   }
+
+   .scroller-icon {
+      width: 32px;
+   }
+}
+
+@media screen and (max-width: 950px) {
+   .section-padding {
+      padding-top: 5rem !important;
+      padding-bottom: 5rem !important;
+   }
+
+   .cubespinner .face,
+   .cubespinner .face-dark {
+      width: 150px;
+      height: 150px;
+   }
+
+   .face1 {
+      transform: translateZ(75px);
+   }
+
+   .face2 {
+      transform: rotateY(90deg) translateZ(75px);
+   }
+
+   .face3 {
+      transform: rotateY(90deg) rotateX(90deg) translateZ(75px);
+   }
+
+   .face4 {
+      transform: rotateY(180deg) rotateZ(90deg) translateZ(75px);
+   }
+
+   .face5 {
+      transform: rotateY(-90deg) rotateZ(90deg) translateZ(75px);
+   }
+
+   .face6 {
+      transform: rotateX(-90deg) translateZ(75px);
+   }
+
+   .nav-glass {
+      box-shadow: 0 2px 20px -2px rgba(120, 76, 251, 0.5);
+   }
+
+   .container {
+      max-width: 720px;
+   }
+
+   .nav-container {
+      max-width: 752px;
+   }
+
+   .scroller-icon {
+      width: 28px;
+   }
+}
+
+@media screen and (max-width: 768px) {
+   .container {
+      max-width: 540px;
+   }
+
+   .nav-container {
+      max-width: 572px;
+   }
+
+   .skill-icon {
+      height: 30px;
+      width: 30px;
+   }
+}
+
+@media screen and (max-width: 650px) {
+   .section-padding {
+      padding-top: 4.5rem !important;
+      padding-bottom: 4.5rem !important;
+   }
+
+   .container {
+      width: 100%;
+   }
+
+   .nav-container {
+      width: 100%;
+   }
+
+   .swiper-container .swiper-button {
+      height: 35px;
+      width: 35px;
+   }
+
+   .swiper-container .swiper-button-container {
+      bottom: -35px;
+   }
+}
+
+@media screen and (max-width: 480px) {}
